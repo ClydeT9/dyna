@@ -4,7 +4,7 @@ class ProjetsController < ApplicationController
   # GET /projets
   # GET /projets.json
   def index
-    @projets_all = Projet.all.where.not(id:1)
+    @projets_all = Projet.all.where.not(id: [1,2])
     @projets = Projet.where(id:1)
     @projets1 = Projet.where(id:2)
     @projets2 = Projet.where(id:3)

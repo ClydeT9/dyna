@@ -4,17 +4,13 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-    @homes = Home.where(id:4)
-    @homes1 = Home.where(id:5)
-    @homes2 = Home.where(id:6)
-    @homes3 = Home.where(id:7)
-    @homes4 = Home.where(id:8)
-    @homes5 = Home.where(id:9)
-    @projets9 = Projet.where(id:9)
+    @homes = Home.where(id:1)
+    @homes1 = Home.where(id:2)
     @projets1 = Projet.where(id:2)
     @projets2 = Projet.where(id:3)
     @projets3 = Projet.where(id:4)
     @projets4 = Projet.where(id:5)
+    @projets5 = Projet.where(id:6)
   end
 
   # GET /homes/1

@@ -305,7 +305,7 @@ span.feature img:first-child:not(:last-child) {
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets1.each do |projet| %>
+                              <% @projets2.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -314,7 +314,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets2.each do |projet| %>
+                              <% @projets3.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%=projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -323,7 +323,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets3.each do |projet| %>
+                              <% @projets4.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -332,7 +332,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                               <% @projets4.each do |projet| %>
+                               <% @projets5.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
