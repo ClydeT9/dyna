@@ -1,0 +1,405 @@
+<style>
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+.dynagraph {
+  text-decoration: underline #0088CE;
+}
+
+.text-center.home {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+img.dynagraph-grand {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+section.homeview {
+    padding-bottom: 50px!important;
+}
+
+.slick-initialized .slick-slide {
+    min-height: 60px;
+}
+
+.savoirfaire {
+    padding-bottom: 50px!important;
+}
+
+[data-overlay] *:not(.container):not(.background-image-holder) {
+    font-weight:bold;
+}
+[data-overlay="2"]:before {
+    opacity: 0.5;
+}
+span.feature img:first-child:not(:last-child) {
+    min-height: 191px!important;
+}
+@media screen and (max-width: 940px) {
+  a.feature img:first-child:not(:last-child) {
+    min-height: 51px!important;
+}
+}
+
+.test2{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.h3 {
+    font-weight:bold;
+}
+.switchable__text div {
+    font-size: 16px!important;
+    color: grey!important;
+}
+
+.test div{
+      font-size: 1.35714286em;
+    line-height: 1.68421053em;
+        font-weight: 400;
+    color: #808080;
+}
+</style>
+
+<section class="text-center home">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-10">
+                        <% @homes.each do |home| %>
+                        <%= image_tag "dynagraph-grand.png", class:"dynagraph-grand", width:440%>
+                            <h3 class="h3"><%= home.title %></h3>
+                            <p class="lead body">
+                                <div class="test"><%= sanitize home.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_home_path(home) %><%end%></div>
+                            </p>
+                        <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+<section class="homeview">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-6">
+                            <a href="/solutions#3" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+                                <div class="background-image-holder" style="background: url('/assets/Yahama4.jpg'); opacity: 1;">
+                                        <img alt="background" src="/assets/Yahama4.jpg">
+                                    </div>
+                                    <h4 class="pos-vertical-center">Panneaux et Enseignes</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-5 col-6">
+                            <a href="/solutions#1" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+                                    <div class="background-image-holder" style="background: url('/assets/vehicule_10.jpg'); opacity: 1;">
+                                        <img alt="background" src="/assets/vehicule_10.jpg">
+                                    </div>
+                                    <h4 class="pos-vertical-center">Lettrage Véhicules</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-5 col-6">
+                            <a href="/solutions#4" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+                                    <div class="background-image-holder" style="background: url('/assets/panneaux_5.jpg'); opacity: 1;">
+                                        <img alt="background" src="/assets/panneaux_5.jpg">
+                                    </div>
+                                    <h4 class="pos-vertical-center">Bâches</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-6">
+                            <a href="/solutions#4" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
+                                    <div class="background-image-holder" style="background: url('/assets/sablage_1.jpg'); opacity: 1;">
+                                        <img alt="background" src="/assets/sablage_1.jpg">
+                                    </div>
+                                    <h4 class="pos-vertical-center">Sablage</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-12 col-12">
+                            <a href="/solutions#2" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
+                                    <div class="background-image-holder" style="background: url('/assets/Yamaha1.jpg'); opacity: 1;">
+                                        <img alt="background" src="/assets/Yamaha1.jpg">
+                                    </div>
+                                    <h4 class="pos-vertical-center">Évènements & Signalisations</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+
+<center>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <% @projets9.each do |projet| %>
+                            <h2><%= projet.title%></h2> 
+                            <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
+                            <%end%>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+</center>
+
+                <div class="container">
+                  <div class="row">
+                        <div class="col-md-12">
+                          <section class="customer-logos slider">
+                          <% @projets9.each do |projet| %>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:little) %></div>
+                          <% end %>
+                          </section>
+                        </div>
+                   </div>
+                </div>
+                <!--end of container-->
+
+<section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Exemples de réalisations</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="/projets">Voir plus</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets1.each do |projet| %>
+                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <h5 class="mb--0"><%= projet.title %></h5>
+                                <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
+                              <% end %>
+                            </span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets2.each do |projet| %>
+                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <h5 class="mb--0"><%=projet.title %></h5>
+                                <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
+                                <%end%>
+                            </span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets3.each do |projet| %>
+                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <h5 class="mb--0"><%= projet.title %></h5>
+                                <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
+                                <% end %>
+                            </span >
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                               <% @projets4.each do |projet| %>
+                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <h5 class="mb--0"><%= projet.title %></h5>
+                                <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
+                                <% end %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+<section class="savoirfaire">
+                <div class="container">
+                    <div class="row justify-content-around">
+                        <div class="col-md-6">
+                            <%= image_tag "recruitment-3.jpg",class:"border--round" %>
+                        </div>
+                        <div class="col-md-6 col-lg-5">
+                         <% @homes1.each do |home| %>
+                            <div class="switchable__text">
+                                <h2><%= home.title %></h2>
+                                <p class="lead">
+                                    <%= sanitize home.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_home_path(home) %><%end%>
+                                    <br><a href="/abouts">Lire plus</a>
+                                </p>
+                            </div>
+                        <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+<script>
+
+
+function createSlick(){  
+
+	$(".customer-logos").not('.slick-initialized').slick({
+    autoplay: true,
+    dots: false,
+    arrows:false,
+    pauseOnHover: false,
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    autoplaySpeed: 1500,
+    responsive: [{ 
+        breakpoint: 500,
+        settings: {
+            dots: false,
+            arrows: false,
+            infinite: false,
+            slidesToShow: 2,
+            slidesToScroll: 2
+        } 
+    }]
+});	
+
+}
+
+createSlick();
+
+//Now it will not throw error, even if called multiple times.
+$(window).on( 'resize', createSlick );
+</script>

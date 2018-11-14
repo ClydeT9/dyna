@@ -1,0 +1,35 @@
+<style>
+footer.dark {
+    padding: 0;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    background: #252525;
+    color: #ffffff;
+}
+i.fab.fa-facebook-f.fa-2x, i.fab.fa-linkedin-in.fa-2x {
+    color: #ffffff;
+}
+
+footer a.dynagraph.nav {
+    color: white!important;
+}
+
+.col-md-6.footer {
+    font-family: "DINMedium";
+}
+</style>
+
+<footer class="dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 footer">
+                           <%= link_to root_path do %><%= image_tag "DynagraphCarre.png", class:"logo-mini", height:25%><% end %> <%= link_to 'dynagraph', root_path,class:"dynagraph nav" %> | digital printing & lettering
+                        </div>
+                        <div class="col-md-6 text-right text-left-xs">
+                            <center><small>24 avenue L.Mommaertslaan 1140, Brussels <strong>|</strong> Tel: +32 (0)2 730 06 70</small></center>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </footer>

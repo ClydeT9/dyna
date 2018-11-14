@@ -1,0 +1,97 @@
+<style>
+.masonry__item:not(:empty) article {
+    cursor: default;
+}
+article.imagebg .article__title span {
+    font-size: 18px;
+}
+.imagebg:not(.image--light) h4 {
+    font-size:14px;
+}
+.validate-required.validate-email {
+    margin-bottom:14px;
+}
+img.test {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+article.imagebg.border--round {
+    padding:0px;
+}
+
+.article__title {
+    padding-left: 30px;
+}
+.color {
+    background: #cbd301;
+    padding: 1px;
+    text-align: center;
+    border-radius: 4px;
+    display:inline-block;
+    width:40%;
+    font-size:12px;
+    margin-right:10px;
+}
+.color:hover {
+  cursor: pointer;
+}
+</style>
+<div class="main-container">
+<section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                           <% @projets.each do |projet| %>
+                            <h2><%= projet.title %></h2>
+                            <p class="lead">
+                               <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
+                               <% if (user_signed_in?) %><%= link_to 'Nouveau projet', new_projet_path(projet) %><%end%>
+                            </p>
+                            <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        
+            <section class="space--sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="masonry masonry-blog-magazine">
+                            
+                             <% @projets_all.each do |projet| %>
+                                    <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                        <a class="block" href="#">
+                                            <article class="imagebg border--round" data-scrim-bottom="8">
+                                                
+                                                   
+                                               
+						                                      <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
+
+
+                                                <div class="article__title">
+                                                    <span><%= projet.title %></span>
+                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
+                                                </div>
+                                            </article>
+                                        </a>
+                                    </div>
+                            <% end %>
+                                    
+                                    <!--end item-->
+                                   
+                                </div>
+                                <!--end masonry container-->
+                                
+                            </div>
+                            <!--end masonry-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>

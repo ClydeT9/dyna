@@ -1,0 +1,84 @@
+<style>
+.col-md-6,.col-md-12 {
+    padding-left:0px;
+}
+.col-md-12.boxed {
+    padding-bottom: 0px;
+}
+.btn:not(:disabled):not(.disabled) {
+    width: 103%;
+}
+section.bg--secondary {
+    border-top: 1px solid #ececec;
+}
+.background-image-holder.test {
+    background: url(/assets/education-1.jpg);
+    opacity:1;
+}
+.background-image-holder.test2 {
+    background: url(/assets/inner-5.jpg);
+    opacity:1;
+}
+.lead.dyna a.dynagraph.nav {
+    font-size: 20px;
+}
+</style><div class="main-container">
+            <section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                        <% @abouts.each do |about| %>
+                            <h1><%= about.title %></h1>
+                            <p class="lead">
+                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                            <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+               <div class="background-image-holder test">
+                        <img alt="image" src="/assets/education-1.jpg">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                         <% @abouts1.each do |about| %>
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                         <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div class="background-image-holder test2">
+                        <img alt="image" src="/assets/inner-5.jpg">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                         <% @abouts2.each do |about| %>
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                          <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>

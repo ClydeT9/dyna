@@ -1,0 +1,75 @@
+<style>
+.lead.dyna {
+    font-family: "DINMedium";
+}
+
+.lead.dyna a.dynagraph.nav {
+    font-size: 20px;
+}
+</style>
+<section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-6">
+                        <%= image_tag "dynagraph-grand.png", width:200%>
+                            <h1>Contactez-nous</h1>
+                            <p class="lead">
+                                N'hésitez pas à nous contacter pour toutes questions
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section class=" bg--secondary">
+                <div class="container">
+                    <div class="row justify-content-center no-gutters">
+                        <div class="col-md-12 col-lg-12">
+                        <div class="col-md-5">
+                            <p class="lead dyna">
+                                <%= link_to root_path do %><%= image_tag "DynagraphCarre.png", class:"logo-mini", height:25%><% end %> <span class="type--fade"><%= link_to 'dynagraph', root_path,class:"dynagraph nav" %> | <small>digital printing & lettering</small></span>
+                            </p>
+                            <p class="lead">
+                                Tel: +32 (0)2 730 06 70
+                            </p>
+                            <p class="lead">
+                                <strong>Adresse: </strong><br>24 avenue L.Mommaertslaan<br> 1140 Brussels<br><br>
+                                <strong>Adresse email:</strong><br> dynagraph@skynet.be 
+                            </p>
+                        </div>
+
+                            <div class="boxed boxed--border">
+                                <%= form_for @contact, class:"text-left form-email row mx-0" do |f| %>
+                                    <div class="col-md-6">
+                                        <span>Nom:</span>
+                                        <%= f.text_field :nom, required: true, class:"validate-required" %>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>Adresse email:</span>
+                                        <%= f.email_field :email, required: true, class:"validate-required validate-email" %>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>Téléphone:</span>
+                                        <%= f.text_field :telephone, class:"validate-required" %>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span>Message:</span>
+                                        <%= f.text_area :message, as: :text, rows:"5", class:"validate-required" %>
+                                    </div>
+                                    <div class="hidden">
+                                        <%= f.text_field :nickname, hint: 'Leave this field blank!' %>
+                                    </div>
+                                    <div class="col-md-12 boxed">
+                                        <%= f.button 'Envoyer', class: "btn btn--primary type--uppercase" %>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                </section>

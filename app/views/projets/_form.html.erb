@@ -1,0 +1,38 @@
+<style>
+.panel-heading.preview {
+    max-width: 250px;
+}
+</style>
+<% if (user_signed_in?) %>
+<%= form_for @projet, html: {multipart: true} do |f| %>
+  <% if projet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(projet.errors.count, "error") %> prohibited this projet from being saved:</h2>
+
+      <ul>
+      <% projet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div><br>
+
+  <%= file_field_tag "images[]", type: :file, multiple: true %>
+  <br><br>
+  <div id="photos"><%= render 'photos/list' %></div>
+  <br><br>
+
+  <div class="actions">
+    <%= f.submit "Modifier" %>
+  </div>
+<% end %>
+<% end %>
