@@ -16,7 +16,7 @@
                          <% @solutions.each do |solution| %>
                             <h1><%= solution.title %></h1>
                             <p class="lead">
-                                <%= solution.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+                                <%= sanitize solution.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
                             </p>
                             <% end %>
                         </div>

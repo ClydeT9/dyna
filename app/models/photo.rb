@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
     belongs_to :projet
     
     has_attached_file :image, :styles => { :medium => "1600x1600>",:little =>"300x300>", :thumb => "100x100>" }                               
