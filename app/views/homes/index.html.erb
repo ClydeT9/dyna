@@ -257,7 +257,7 @@ span.feature img:first-child:not(:last-child) {
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                        <% @projets9.each do |projet| %>
+                        <% @projets1.each do |projet| %>
                             <h2><%= projet.title%></h2> 
                             <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
                             <%end%>
@@ -272,7 +272,7 @@ span.feature img:first-child:not(:last-child) {
                   <div class="row">
                         <div class="col-md-12">
                           <section class="customer-logos slider">
-                          <% @projets9.each do |projet| %>
+                          <% @projets1.each do |projet| %>
                             <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:little) %></div>
                             <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:little) %></div>
                             <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:little) %></div>
