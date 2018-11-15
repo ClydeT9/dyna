@@ -20,7 +20,8 @@ class ProjetsController < ApplicationController
   def show
     @photos = @projet.photos
   end
-
+  def upload_photo
+  end
   # GET /projets/new
   def new
     @projet = Projet.new
@@ -28,27 +29,24 @@ class ProjetsController < ApplicationController
 
   # GET /projets/1/edit
   def edit
+    @photos = @projet.photos
   end
 
   # POST /projets
   # POST /projets.json
   def create
     @projet = Projet.new(projet_params)
-
-    if @projet.save
-          
-      if params[:images]
-          params[:images].each do |i|
-              @projet.photos.create(image: i)
-          end
-      end
-        
-      @photos = @projet.photos
-      redirect_to edit_projet_path(@projet), notice:"Votre projet a été ajouté" 
-       
-    else
+      if @projet.save
+        if params[:images]
+            params[:images].each do |i|
+                @projet.photos.create(image: i)
+            end
+        end
+        @photos = @projet.photos
+        redirect_to edit_projet_path(@projet), notice:"Votre logiciel a été ajouté avec succès" 
+  else
        render :new
-    end
+  end
   end
 
   def edit

@@ -1,6 +1,9 @@
 class PhotosController < ApplicationController
-    
-    
+
+    def new
+        @photo = Photo.new
+    end
+  
     def destroy
         @photo = Photo.find(params[:id])
         projet = @photo.projet
@@ -11,4 +14,4 @@ class PhotosController < ApplicationController
         respond_to :js
     end
     
-end
+  end

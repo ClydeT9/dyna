@@ -13,9 +13,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'trix'
 gem 'devise'
-	# paperclip
-gem 'paperclip'
-gem 'paperclip-cloudinary'
+
+gem 'carrierwave', '~> 1.0'
+gem 'cloudinary'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
