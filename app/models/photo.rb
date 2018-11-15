@@ -1,4 +1,4 @@
-class Photo < ApplicationRecord
+class Photo < ActiveRecord::Base
     belongs_to :projet
     
     validates :image, presence: true
