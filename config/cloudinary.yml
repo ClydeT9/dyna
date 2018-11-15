@@ -1,6 +1,6 @@
 production:
-  cloud_name: "hfqbomylo"
-  api_key: "183281716346692"
-  api_secret: "uCgutFjCvq2O1IRqFwxWvhI1AFk"
+  cloud_name: "hcrvkxzjw"
+  api_key: "151947513519865"
+  api_secret: "SxUkMtLLLsa3SDI6qAu4B4HEUAk"
   enhance_image_tag: true
   static_image_support: true
