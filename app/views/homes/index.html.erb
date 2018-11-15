@@ -273,18 +273,18 @@ span.feature img:first-child:not(:last-child) {
                         <div class="col-md-12">
                           <section class="customer-logos slider">
                           <% @projets1.each do |projet| %>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:little) %></div>
-                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:little) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[0].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[1].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[2].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[3].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[4].image.url(:medium) %></div>
+                            <div class="slide d-flex align-items-center"><%= image_tag projet.photos[5].image.url(:medium) %></div>
                           <% end %>
                           </section>
                         </div>
@@ -306,7 +306,7 @@ span.feature img:first-child:not(:last-child) {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets2.each do |projet| %>
-                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                               <% end %>
@@ -315,7 +315,7 @@ span.feature img:first-child:not(:last-child) {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets3.each do |projet| %>
-                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%=projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <%end%>
@@ -324,7 +324,7 @@ span.feature img:first-child:not(:last-child) {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets4.each do |projet| %>
-                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
@@ -333,7 +333,7 @@ span.feature img:first-child:not(:last-child) {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                                <% @projets5.each do |projet| %>
-                                <%= image_tag projet.photos[0].image.url(:little) if projet.photos.length > 0 %>
+                                <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
