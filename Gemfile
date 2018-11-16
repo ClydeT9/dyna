@@ -14,8 +14,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'trix'
 gem 'devise'
 
-gem 'carrierwave', '~> 1.0'
-gem 'cloudinary'
+# paperclip
+gem 'paperclip'
+gem 'paperclip-cloudinary'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
