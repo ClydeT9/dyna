@@ -7,6 +7,12 @@
     font-size: 16px!important;
     color: grey!important;
 }
+.test {
+    font-weight: 400!important;
+    color: #808080!important;
+    font-size: 1.35714286em!important;
+    line-height: 1.68421053em!important;
+}
 </style>
 <div class="main-container">
             <section class="text-center height-40">
@@ -16,7 +22,7 @@
                          <% @solutions.each do |solution| %>
                             <h1><%= solution.title %></h1>
                             <p class="lead">
-                                <%= sanitize solution.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+                                <div class="test"><%= sanitize solution.body %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
                             </p>
                             <% end %>
                         </div>

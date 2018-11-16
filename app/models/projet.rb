@@ -1,3 +1,3 @@
-class Projet < ActiveRecord::Base
+class Projet < ApplicationRecord
     has_many :photos
 end
