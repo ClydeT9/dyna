@@ -20,8 +20,6 @@ class ProjetsController < ApplicationController
   def show
     @photos = @projet.photos
   end
-  def upload_photo
-  end
   # GET /projets/new
   def new
     @projet = Projet.new
