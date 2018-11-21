@@ -16,7 +16,6 @@ gem 'devise'
 
 # paperclip
 gem 'paperclip'
-gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
