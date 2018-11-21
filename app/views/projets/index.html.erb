@@ -72,7 +72,7 @@ article.imagebg.border--round {
 
                                                 <div class="article__title">
                                                     <span><%= projet.title %></span>
-                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
+                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
                                                 </div>
                                             </article>
                                         </a>
