@@ -68,8 +68,7 @@ article.imagebg.border--round {
                                             <article class="imagebg border--round" data-scrim-bottom="8">
                                                 
                                                    
-                                               
-						                                     
+                                                <%= image_tag projet.photos[0].image.url(:medium) if projet.photos.length > 0 %>
 
 
                                                 <div class="article__title">
