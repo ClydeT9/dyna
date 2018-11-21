@@ -178,11 +178,11 @@ span.feature img:first-child:not(:last-child) {
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-10">
-                        <% @homes.each do |home| %>
+                        <% @projets1.each do |projet| %>
                         <%= image_tag "dynagraph-grand.png", class:"dynagraph-grand", width:440%>
-                            <h3 class="h3"><%= home.title %></h3>
+                            <h3 class="h3"><%= projet.title %></h3>
                             <p class="lead body">
-                                <div class="test"><%= sanitize home.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_home_path(home) %><%end%></div>
+                                <div class="test"><%= sanitize projet.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%></div>
                             </p>
                         <% end %>
                         </div>
@@ -257,7 +257,7 @@ span.feature img:first-child:not(:last-child) {
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                        <% @projets1.each do |projet| %>
+                        <% @projets2.each do |projet| %>
                             <h2><%= projet.title%></h2> 
                             <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
                             <%end%>
@@ -272,7 +272,7 @@ span.feature img:first-child:not(:last-child) {
                   <div class="row">
                         <div class="col-md-12">
                           <section class="customer-logos slider">
-                          <% @projets1.each do |projet| %>
+                          <% @projets3.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:thumbnail) if projet.photos.length > 0 %>
                                 <%= image_tag projet.photos[1].image.url(:thumbnail) if projet.photos.length > 0 %>
                                 <%= image_tag projet.photos[2].image.url(:thumbnail) if projet.photos.length > 0 %>
@@ -305,7 +305,7 @@ span.feature img:first-child:not(:last-child) {
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets2.each do |projet| %>
+                              <% @projets6.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:standard) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -314,7 +314,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets3.each do |projet| %>
+                              <% @projets7.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:standard) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%=projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -323,7 +323,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                              <% @projets4.each do |projet| %>
+                              <% @projets8.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:standard) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -332,7 +332,7 @@ span.feature img:first-child:not(:last-child) {
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="feature">
-                               <% @projets5.each do |projet| %>
+                               <% @projets9.each do |projet| %>
                                 <%= image_tag projet.photos[0].image.url(:standard) if projet.photos.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
@@ -350,20 +350,20 @@ span.feature img:first-child:not(:last-child) {
 <section class="savoirfaire">
                 <div class="container">
                     <div class="row justify-content-around">
+                     <% @projets4.each do |projet| %>
                         <div class="col-md-6">
                             <%= image_tag "recruitment-3.jpg",class:"border--round" %>
                         </div>
                         <div class="col-md-6 col-lg-5">
-                         <% @homes1.each do |home| %>
                             <div class="switchable__text">
-                                <h2><%= home.title %></h2>
+                                <h2><%= projet.title %></h2>
                                 <p class="lead">
-                                    <%= sanitize home.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_home_path(home) %><%end%>
+                                    <%= sanitize projet.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
                                     <br><a href="/abouts">Lire plus</a>
                                 </p>
                             </div>
-                        <% end %>
                         </div>
+                    <% end %>
                     </div>
                     <!--end of row-->
                 </div>
