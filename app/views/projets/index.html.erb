@@ -42,7 +42,7 @@ article.imagebg.border--round {
             <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-md-8">
-                           <% @projets5.each do |projet| %>
+                           <% @projets4.each do |projet| %>
                             <h2><%= projet.title %></h2>
                             <p class="lead">
                                <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>

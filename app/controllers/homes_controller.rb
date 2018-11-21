@@ -12,7 +12,6 @@ class HomesController < ApplicationController
     @projets6 = Projet.where(id:6)
     @projets7 = Projet.where(id:7)
     @projets8 = Projet.where(id:8)
-    @projets9 = Projet.where(id:9)
   end
 
   # GET /homes/1

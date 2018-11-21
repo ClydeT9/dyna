@@ -4,9 +4,9 @@ class ProjetsController < ApplicationController
   # GET /projets
   # GET /projets.json
   def index
-    @projets_all = Projet.all.where.not(id: [1,2,3,4,5,6,7,8,9])
-    @projets_home = Projet.all.where(id: [6,7,8,9])
-    @projets5 = Projet.where(id:5)
+    @projets_all = Projet.all.where.not(id: [1,2,3,4,5,6,7,8])
+    @projets_home = Projet.all.where(id: [5,6,7,8])
+    @projets4 = Projet.where(id:4)
   end
 
   # GET /projets/1
