@@ -12,7 +12,6 @@ class ProjetsController < ApplicationController
   # GET /projets/1
   # GET /projets/1.json
   def show
-    @photos = @projet.photos
   end
   # GET /projets/new
   def new
@@ -21,42 +20,38 @@ class ProjetsController < ApplicationController
 
   # GET /projets/1/edit
   def edit
-    @photos = @projet.photos
   end
 
   # POST /projets
   # POST /projets.json
   def create
     @projet = Projet.new(projet_params)
+
+    respond_to do |format|
       if @projet.save
-        if params[:images]
-            params[:images].each do |i|
-                @projet.photos.create(image: i)
-            end
-        end
-        @photos = @projet.photos
-        redirect_to edit_projet_path(@projet), notice:"Votre logiciel a été ajouté avec succès" 
-  else
-       render :new
-  end
+        format.html { redirect_to @projet, notice: 'projet was successfully created.' }
+        format.json { render :show, status: :created, location: @projet }
+      else
+        format.html { render :new }
+        format.json { render json: @projet.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
-    @photos = @projet.photos
   end
   # PATCH/PUT /projets/1
   # PATCH/PUT /projets/1.json
   def update
-    if @projet.update(projet_params)
-      if params[:images]
-          params[:images].each do |i|
-              @projet.photos.create(image: i)
-          end
+    respond_to do |format|
+      if @projet.update(projet_params)
+        format.html { redirect_to root_path, notice: 'projet was successfully updated.' }
+        format.json { render :show, status: :ok, location: @projet }
+      else
+        format.html { render :edit }
+        format.json { render json: @projet.errors, status: :unprocessable_entity }
       end
-     redirect_to edit_projet_path(@projet), notice:"Modification enregistrée..."
- else
-     render :edit
- end
+    end
   end
 
   # DELETE /projets/1
@@ -68,6 +63,11 @@ class ProjetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def delete_image_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: projets_path)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -77,6 +77,6 @@ class ProjetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projet_params
-      params.fetch(:projet).permit(:title, :body)
+      params.fetch(:projet).permit(:title, :body,images: [])
     end
 end

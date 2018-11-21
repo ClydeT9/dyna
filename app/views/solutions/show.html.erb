@@ -2,3 +2,10 @@
 
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
 <%= link_to 'Back', solutions_path %>
+
+<% (0...@solution.images.count).each do |image| %>
+<%= image_tag(@solution.thumbnail(image))%>
+<%= link_to "Remove", delete_image_attachment_solution_url(@solution.images[image]), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+
+<%= image_tag @solution.images[0] if @solution.images.length > 0 %>

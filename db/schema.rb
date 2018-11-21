@@ -47,17 +47,6 @@ ActiveRecord::Schema.define(version: 2018_11_21_124133) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.integer "projet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["projet_id"], name: "index_photos_on_projet_id"
-  end
-
   create_table "projets", force: :cascade do |t|
     t.string "title"
     t.text "body"

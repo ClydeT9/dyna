@@ -25,10 +25,29 @@
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div><br>
-  <%= file_field_tag "images[]", type: :file, multiple: true %>
-  <br><br>
-  <div id="photos"><%= render 'photos/list' %></div>
-  <br><br>
+
+
+<%= f.file_field :images, multiple: true %>
+<br><br>
+<div class="row">
+   <% (0...@projet.images.count).each do |image| %>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading preview">
+                <%= image_tag(@projet.medium(image))%>
+            </div>
+            <div class="panel-body">
+                <span class="pull-right">
+                    <%= link_to delete_image_attachment_projet_url(@projet.images[image]), method: :delete, data: {confirm: "Supprimer l'image ?"} do %>
+                    <i class="fa fa-times fa-lg"></i>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<br><br>
 
   <div class="actions">
     <%= f.submit "Modifier" %>

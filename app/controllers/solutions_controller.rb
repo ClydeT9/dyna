@@ -64,6 +64,12 @@ class SolutionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def delete_image_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: solutions_path)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,6 +79,6 @@ class SolutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solution_params
-      params.fetch(:solution).permit(:title, :body)
+      params.fetch(:solution).permit(:title, :body,images: [])
     end
 end
