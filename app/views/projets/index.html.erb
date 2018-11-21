@@ -1,3 +1,58 @@
+        <style>
+:root {
+  --modal-duration: 0.1s;
+  --modal-color: #428bca;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+</style>
 <style>
 .masonry__item:not(:empty) article {
     cursor: default;
@@ -29,7 +84,7 @@ article.imagebg.border--round {
     text-align: center;
     border-radius: 4px;
     display:inline-block;
-    width:40%;
+    min-width:40%;
     font-size:12px;
     margin-right:10px;
 }
@@ -61,26 +116,28 @@ article.imagebg.border--round {
                     <div class="row">
                         <div class="col-md-12">
                             <div class="masonry masonry-blog-magazine">
-                            <% @projets_home.each do |projet| %>
-                                    <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
-                                        <a class="block" href="#">
-                                            <article class="imagebg border--round" data-scrim-bottom="8">
-                                                
-                                                   
-                                                <%= image_tag projet.photos[0].image.url(:large) if projet.photos.length > 0 %>
+                                <span id="modal-btn" class="button">
+                                <% @projets_home.each do |projet| %>
+                                    <span class="projets" data-id="<%= projet.id %>">
+                                                                            <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                                                            <article class="imagebg border--round" data-scrim-bottom="8">
+                                                                                
+                                                                                
+                                                                                <%= image_tag projet.photos[0].image.url(:large) if projet.photos.length > 0 %>
 
 
-                                                <div class="article__title">
-                                                    <span><%= projet.title %></span>
-                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
-                                                </div>
-                                            </article>
-                                        </a>
-                                    </div>
-                            <% end %>
+                                                                                <div class="article__title">
+                                                                                    <span><%= projet.title %></span>
+                                                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
+                                                                                </div>
+                                                                            </article>
+                                                                    </div>
+                                    </span>
+                                <% end %>
+                                </span>
+
                              <% @projets_all.each do |projet| %>
                                     <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
-                                        <a class="block" href="#">
                                             <article class="imagebg border--round" data-scrim-bottom="8">
                                                 
                                                    
@@ -92,10 +149,9 @@ article.imagebg.border--round {
                                                     <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
                                                 </div>
                                             </article>
-                                        </a>
+                                        </a> 
                                     </div>
-                            <% end %>
-                                    
+                            <% end %>                                 
                                     <!--end item-->
                                    
                                 </div>
@@ -110,3 +166,53 @@ article.imagebg.border--round {
                 <!--end of container-->
             </section>
         </div>
+
+<div id="my-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-body">
+      <span class="close">&times;</span>
+            <div id='contentest'></div>
+      </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(".projets[data-id]").click(function(e) {
+    if (!$(e.target).hasClass('no-click')) {
+      $.get('/projets/' + $(this).attr('data-id'), function(data) {
+        $('#contentest').html(data);
+      }); 
+    }
+});
+</script>
+
+  <script>
+  // Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const modalBtn = document.querySelector('#modal-btn');
+const closeBtn = document.querySelector('.close');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+</script>
