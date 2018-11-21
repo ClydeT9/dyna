@@ -25,7 +25,6 @@
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div><br>
-
   <%= file_field_tag "images[]", type: :file, multiple: true %>
   <br><br>
   <div id="photos"><%= render 'photos/list' %></div>

@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'trix'
 gem 'devise'
+gem 'google-cloud-storage'
 
 # paperclip
 gem 'paperclip'
