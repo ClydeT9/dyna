@@ -24,8 +24,7 @@ local:
 google:
   service: GCS
   project: projet-dynagraph
-  # credentials: <%= Rails.root.join("config/secrets/projet-dynagraph.json") %>
-  credentials: <%= Rails.application.credentials.gcs_projet_dynagraph.to_json %>
+  credentials: <%= Rails.root.join("config/secrets/projet-dynagraph.json") %>
   bucket: projet-dynagraph
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
