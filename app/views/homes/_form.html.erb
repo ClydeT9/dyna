@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <label>Titre</label>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
+   <label>Description</label>
     <%= form.hidden_field :body, id:"Body" %>
     <trix-editor input="Body" name="text" id="text"></trix-editor>
   </div><br>
