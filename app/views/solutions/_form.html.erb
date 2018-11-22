@@ -12,25 +12,17 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :title %>
+    <label>Titre</label>
     <%= form.text_field :title %>
   </div>
   
 
   <div class="field">
-    <%= form.label :body %>
+    <label>Description</label>
     <%= form.hidden_field :body, id:"Body" %>
     <trix-editor input="Body" name="text" id="text"></trix-editor>
   </div><br>
 
-<div class="field">
-<%= form.file_field :images, multiple: true %>
-</div>
-
-<% (0...@solution.images.count).each do |image| %>
-<%= image_tag(@solution.medium(image))%>
-<%= link_to "Supprimer", delete_image_attachment_solution_url(@solution.images[image]), method: :delete, data: {confirm: "Supprimer l'image ?"} %>
-<% end %>
 
   <div class="actions">
     <%= form.submit "Modifier" %>
