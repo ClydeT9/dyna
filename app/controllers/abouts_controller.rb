@@ -54,6 +54,12 @@ class AboutsController < ApplicationController
     end
   end
 
+  def delete_image_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: abouts_path)
+  end
+
   # DELETE /abouts/1
   # DELETE /abouts/1.json
   def destroy

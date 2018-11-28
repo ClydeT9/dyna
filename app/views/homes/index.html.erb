@@ -180,6 +180,14 @@ img.slick-slide.slick-active {
 .background-image-holder {
 opacity: 1; object-fit: cover;
 }
+.image.grand {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+}
+.image.grand img {
+    width:30em;
+}
 </style>
 
 <section class="text-center home">
@@ -187,7 +195,9 @@ opacity: 1; object-fit: cover;
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-10">
                         <% @projets1.each do |projet| %>
-                        <%= image_tag (projet.images[0] if projet.images.length > 0), class:"dynagraph-grand",width:440%>
+                        <div class="image grand">
+                        <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                        </div>
                             <h3 class="h3"><%= projet.title %></h3>
                             <p class="lead body">
                                 <div class="test"><%= sanitize projet.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%></div>
@@ -207,9 +217,9 @@ opacity: 1; object-fit: cover;
                         <% @solutions1.each do |solution| %>
                             <a href="/solutions#3" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                    <div>
-                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
-                                    </div>
+
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+
                                     <h4 class="pos-vertical-center">
                                     <%= solution.title %>
                                     </h4>
@@ -221,9 +231,7 @@ opacity: 1; object-fit: cover;
                         <% @solutions2.each do |solution| %>
                             <a href="/solutions#1" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                    <div>
-                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
-                                    </div>
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
@@ -233,9 +241,7 @@ opacity: 1; object-fit: cover;
                         <% @solutions3.each do |solution| %>
                             <a href="/solutions#4" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                    <div>
-                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
-                                    </div>
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
@@ -245,9 +251,7 @@ opacity: 1; object-fit: cover;
                         <% @solutions4.each do |solution| %>
                             <a href="/solutions#4" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-                                    <div>
-                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
-                                    </div>
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
@@ -257,9 +261,7 @@ opacity: 1; object-fit: cover;
                         <% @solutions5.each do |solution| %>
                             <a href="/solutions#2" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-                                    <div>
-                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
-                                    </div>
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>

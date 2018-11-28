@@ -38,7 +38,7 @@ object-fit: cover; opacity: 1;
              <% @solutions1.each do |solution| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                     <div>
-                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
+                  <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                     </div>
                 </div>
                 <div class="container" id="1">
@@ -60,7 +60,7 @@ object-fit: cover; opacity: 1;
                                     <% @solutions2.each do |solution| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                     <div>
-                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                     </div>
                 </div>
                 <div class="container" id="2">
@@ -81,7 +81,7 @@ object-fit: cover; opacity: 1;
              <% @solutions3.each do |solution| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                     <div>
-                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                     </div>
                 </div>
                 <div class="container" id="3">
@@ -102,7 +102,7 @@ object-fit: cover; opacity: 1;
             <% @solutions4.each do |solution| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                     <div>
-                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
+              <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                     </div>
                 </div>
                 <div class="container" id="4">
@@ -123,7 +123,7 @@ object-fit: cover; opacity: 1;
             <% @solutions5.each do |solution| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                     <div>
-                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
                     </div>
                 </div>
                 <div class="container" id="3">
