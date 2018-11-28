@@ -7,6 +7,7 @@ class AboutsController < ApplicationController
     @abouts = About.where(id:1)
     @abouts1 = About.where(id:2)
     @abouts2 = About.where(id:3)
+    @abouts3 = About.where(id:4)
   end
 
   # GET /abouts/1
@@ -44,7 +45,7 @@ class AboutsController < ApplicationController
   def update
     respond_to do |format|
       if @about.update(about_params)
-        format.html { redirect_to root_path, notice: 'Modifier avec succès.' }
+        format.html { redirect_to action: "index"}
         format.json { render :show, status: :ok, location: @about }
       else
         format.html { render :edit }
@@ -71,6 +72,6 @@ class AboutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_params
-      params.fetch(:about).permit(:title, :body)
+      params.fetch(:about).permit(:title, :body,images: [])
     end
 end

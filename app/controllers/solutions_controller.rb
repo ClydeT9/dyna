@@ -9,6 +9,7 @@ class SolutionsController < ApplicationController
     @solutions2 = Solution.where(id:3)
     @solutions3 = Solution.where(id:4)
     @solutions4 = Solution.where(id:5)
+    @solutions5 = Solution.where(id:6)
   end
 
   # GET /solutions/1
@@ -46,7 +47,7 @@ class SolutionsController < ApplicationController
   def update
     respond_to do |format|
       if @solution.update(solution_params)
-        format.html { redirect_to root_path, notice: 'Solution was successfully updated.' }
+        format.html { redirect_to action: "index" }
         format.json { render :show, status: :ok, location: @solution }
       else
         format.html { render :edit }

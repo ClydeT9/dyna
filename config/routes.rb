@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :homes
-  resources :abouts
+  resources :abouts do 
+    member do
+      delete :delete_image_attachment
+     end  
+  end
   resources :solutions do 
     member do
       delete :delete_image_attachment

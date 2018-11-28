@@ -130,10 +130,6 @@ section.homeview {
     padding-bottom: 50px!important;
 }
 
-.slick-initialized .slick-slide {
-    min-height: 60px;
-}
-
 .savoirfaire {
     padding-bottom: 50px!important;
 }
@@ -172,6 +168,18 @@ span.feature img:first-child:not(:last-child) {
         font-weight: 400!important;
     color: #808080!important;
 }
+img.slick-slide.slick-active {
+    width: auto;
+    height:auto;
+    max-height: 90px;
+}
+.slick-track {
+    display: flex!important;
+    align-items: center!important;
+}
+.background-image-holder {
+opacity: 1; object-fit: cover;
+}
 </style>
 
 <section class="text-center home">
@@ -179,7 +187,7 @@ span.feature img:first-child:not(:last-child) {
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-10">
                         <% @projets1.each do |projet| %>
-                        <%= image_tag "dynagraph-grand.png", class:"dynagraph-grand", width:440%>
+                        <%= image_tag (projet.images[0] if projet.images.length > 0), class:"dynagraph-grand",width:440%>
                             <h3 class="h3"><%= projet.title %></h3>
                             <p class="lead body">
                                 <div class="test"><%= sanitize projet.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%></div>
@@ -196,54 +204,66 @@ span.feature img:first-child:not(:last-child) {
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7 col-6">
+                        <% @solutions1.each do |solution| %>
                             <a href="/solutions#3" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                <div class="background-image-holder" style="background: url('/assets/Yahama4.jpg'); opacity: 1;">
-                                        <img alt="background" src="/assets/Yahama4.jpg">
+                                    <div>
+                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
                                     </div>
-                                    <h4 class="pos-vertical-center">Panneaux et Enseignes</h4>
+                                    <h4 class="pos-vertical-center">
+                                    <%= solution.title %>
+                                    </h4>
                                 </div>
                             </a>
+                        <% end %>
                         </div>
                         <div class="col-md-5 col-6">
+                        <% @solutions2.each do |solution| %>
                             <a href="/solutions#1" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                    <div class="background-image-holder" style="background: url('/assets/vehicule_10.jpg'); opacity: 1;">
-                                        <img alt="background" src="/assets/vehicule_10.jpg">
+                                    <div>
+                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
                                     </div>
-                                    <h4 class="pos-vertical-center">Lettrage Véhicules</h4>
+                                    <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
+                        <% end %>
                         </div>
                         <div class="col-md-5 col-6">
+                        <% @solutions3.each do |solution| %>
                             <a href="/solutions#4" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                                    <div class="background-image-holder" style="background: url('/assets/panneaux_5.jpg'); opacity: 1;">
-                                        <img alt="background" src="/assets/panneaux_5.jpg">
+                                    <div>
+                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
                                     </div>
-                                    <h4 class="pos-vertical-center">Bâches</h4>
+                                    <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
+                        <% end %>
                         </div>
                         <div class="col-md-7 col-6">
+                        <% @solutions4.each do |solution| %>
                             <a href="/solutions#4" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-                                    <div class="background-image-holder" style="background: url('/assets/sablage_1.jpg'); opacity: 1;">
-                                        <img alt="background" src="/assets/sablage_1.jpg">
+                                    <div>
+                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
                                     </div>
-                                    <h4 class="pos-vertical-center">Sablage</h4>
+                                    <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
+                        <% end %>
                         </div>
                         <div class="col-md-12 col-12">
+                        <% @solutions5.each do |solution| %>
                             <a href="/solutions#2" class="block">
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-                                    <div class="background-image-holder" style="background: url('/assets/Yamaha1.jpg'); opacity: 1;">
-                                        <img alt="background" src="/assets/Yamaha1.jpg">
+                                    <div>
+                                        <%= image_tag (solution.images[0] if solution.images.length > 0), class:"background-image-holder"%>
                                     </div>
-                                    <h4 class="pos-vertical-center">Évènements & Signalisations</h4>
+                                    <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             </a>
+                        <% end %>
                         </div>
                     </div>
                     <!--end of row-->

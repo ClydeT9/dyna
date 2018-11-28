@@ -22,6 +22,15 @@ section.bg--secondary {
 .lead.dyna a.dynagraph.nav {
     font-size: 20px;
 }
+.test {
+    font-weight: 400!important;
+    color: #808080!important;
+    font-size: 1.35714286em!important;
+    line-height: 1.68421053em!important;
+}
+.background-image-holder.test {
+object-fit: cover;
+}
 </style><div class="main-container">
             <section class="text-center height-40">
                 <div class="container pos-vertical-center">
@@ -30,7 +39,7 @@ section.bg--secondary {
                         <% @abouts.each do |about| %>
                             <h1><%= about.title %></h1>
                             <p class="lead">
-                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                                <div class="test"><%= sanitize about.body %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
                             <% end %>
                         </div>
@@ -40,45 +49,66 @@ section.bg--secondary {
                 <!--end of container-->
             </section>
             <section class="imageblock switchable feature-large bg--secondary space--sm">
+            <% @abouts1.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-               <div class="background-image-holder test">
-                        <img alt="image" src="/assets/education-1.jpg">
-                    </div>
+                 <div>
+                        <%= image_tag (about.images[0] if about.images.length > 0), class:"background-image-holder test" %>
+                 </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-7">
-                         <% @abouts1.each do |about| %>
                             <h2><%= about.title %></h2>
                             <p class="lead">
                                 <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
-                         <% end %>
                         </div>
                     </div>
                     <!--end of row-->
                 </div>
                 <!--end of container-->
+             <% end %>
             </section>
             <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
+             <% @abouts2.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div class="background-image-holder test2">
-                        <img alt="image" src="/assets/inner-5.jpg">
-                    </div>
+                 <div>
+                        <%= image_tag (about.images[0] if about.images.length > 0), class:"background-image-holder test" %>
+                 </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-7">
-                         <% @abouts2.each do |about| %>
                             <h2><%= about.title %></h2>
                             <p class="lead">
                                 <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
-                          <% end %>
                         </div>
                     </div>
                     <!--end of row-->
                 </div>
                 <!--end of container-->
+            <% end %>
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+             <% @abouts3.each do |about| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                 <div>
+                        <%= image_tag (about.images[0] if about.images.length > 0), class:"background-image-holder test" %>
+                 </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+             <% end %>
             </section>
         </div>

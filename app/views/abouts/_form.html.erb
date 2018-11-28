@@ -22,6 +22,29 @@
     <%= form.text_area :body %>
   </div><br>
 
+
+  <%= form.file_field :images, multiple: true %>
+<br><br>
+<div class="row">
+   <% (0...@about.images.count).each do |image| %>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading preview">
+                <%= image_tag(@about.medium(image))%>
+            </div>
+            <div class="panel-body">
+                <span class="pull-right">
+                    <%= link_to delete_image_attachment_about_url(@about.images[image]), method: :delete, data: {confirm: "Supprimer l'image ?"} do %>
+                    <i class="fa fa-times fa-lg"></i>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<br><br>
+
   <div class="actions">
     <%= form.submit "Modifier" %>
   </div>

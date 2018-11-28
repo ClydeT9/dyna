@@ -12,6 +12,11 @@ class HomesController < ApplicationController
     @projets6 = Projet.where(id:6)
     @projets7 = Projet.where(id:7)
     @projets8 = Projet.where(id:8)
+    @solutions1 = Solution.where(id:2)
+    @solutions2 = Solution.where(id:3)
+    @solutions3 = Solution.where(id:4)
+    @solutions4 = Solution.where(id:5)
+    @solutions5 = Solution.where(id:6)
   end
 
   # GET /homes/1
@@ -49,7 +54,7 @@ class HomesController < ApplicationController
   def update
     respond_to do |format|
       if @home.update(home_params)
-        format.html { redirect_to root_path, notice: 'Home was successfully updated.' }
+        format.html { redirect_to action: "index" }
         format.json { render :show, status: :ok, location: @home }
       else
         format.html { render :edit }

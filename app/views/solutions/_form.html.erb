@@ -23,6 +23,28 @@
     <trix-editor input="Body" name="text" id="text"></trix-editor>
   </div><br>
 
+<%= form.file_field :images, multiple: true %>
+<br><br>
+<div class="row">
+   <% (0...@solution.images.count).each do |image| %>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading preview">
+                <%= image_tag(@solution.medium(image))%>
+            </div>
+            <div class="panel-body">
+                <span class="pull-right">
+                    <%= link_to delete_image_attachment_solution_url(@solution.images[image]), method: :delete, data: {confirm: "Supprimer l'image ?"} do %>
+                    <i class="fa fa-times fa-lg"></i>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<br><br>
+
 
   <div class="actions">
     <%= form.submit "Modifier" %>
