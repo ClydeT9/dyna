@@ -60,7 +60,7 @@ object-fit: cover;
                         <div class="col-lg-5 col-md-7">
                             <h2><%= about.title %></h2>
                             <p class="lead">
-                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ object-fit: cover;
                         <div class="col-lg-5 col-md-7">
                             <h2><%= about.title %></h2>
                             <p class="lead">
-                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ object-fit: cover;
                         <div class="col-lg-5 col-md-7">
                             <h2><%= about.title %></h2>
                             <p class="lead">
-                                <%= about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                                <%= sanitize  about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
                             </p>
                         </div>
                     </div>

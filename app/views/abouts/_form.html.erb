@@ -17,9 +17,10 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+    <div class="field">
     <label>Description</label>
-    <%= form.text_area :body %>
+    <%= form.hidden_field :body, id:"Body" %>
+    <trix-editor input="Body" name="text" id="text"></trix-editor>
   </div><br>
 
 
