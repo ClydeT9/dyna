@@ -1,13 +1,25 @@
-<div class="container"><h2>Connexion</h2>
+<style>
+body {                /* body - or any parent wrapper */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container.contact {
+  flex: 1;
+  width:50em;
+}
+</style>
+<br>
+<div class="container contact"><h2>Connexion</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <label>Adresse email</label><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <label>Mot de passe</label><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div><br>
 

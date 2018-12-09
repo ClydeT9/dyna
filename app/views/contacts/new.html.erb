@@ -7,6 +7,77 @@
     font-size: 20px;
 }
 </style>
+<div id="en4">
+<section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-6">
+                        <%= image_tag "dynagraph-grand.png", width:200%>
+                            <h1>Contact us</h1>
+                            <p class="lead">
+                                Do not hesitate to contact us if you have any questions
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section class=" bg--secondary">
+                <div class="container">
+                    <div class="row justify-content-center no-gutters">
+                        <div class="col-md-12 col-lg-12">
+                        <div class="col-md-5">
+                            <p class="lead dyna">
+                                <%= link_to root_path do %><%= image_tag "DynagraphCarre.png", class:"logo-mini", height:25%><% end %> <span class="type--fade"><%= link_to 'dynagraph', root_path,class:"dynagraph nav" %> | <small>digital printing & lettering</small></span>
+                            </p>
+                            <p class="lead">
+                                Phone: +32 (0)2 730 06 70
+                            </p>
+                            <p class="lead">
+                                <strong>Adress: </strong><br>24 avenue L.Mommaertslaan<br> 1140 Brussels<br><br>
+                                <strong>E-mail adress:</strong><br> <a href="mailto:dynagraph@skynet.be ">dynagraph@skynet.be </a>
+                            </p>
+                        </div>
+
+                            <div class="boxed boxed--border">
+                                <%= form_for @contact, class:"text-left form-email row mx-0" do |f| %>
+                                    <div class="col-md-6">
+                                        <span>Name:</span>
+                                        <%= f.text_field :nom, required: true, class:"validate-required" %>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>E-mail adress:</span>
+                                        <%= f.email_field :email, required: true, class:"validate-required validate-email" %>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>Phone:</span>
+                                        <%= f.text_field :telephone, class:"validate-required" %>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span>Message:</span>
+                                        <%= f.text_area :message, as: :text, rows:"5", class:"validate-required" %>
+                                    </div>
+                                    <div class="hidden">
+                                        <%= f.text_field :nickname, hint: 'Leave this field blank!' %>
+                                    </div>
+                                    <div class="col-md-12 boxed">
+                                        <%= f.button 'Send a message', class: "btn btn--primary type--uppercase" %>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                </section></div>
+                <%# en %>
+
+
+<div id="fr4">
 <section class="text-center height-40">
                 <div class="container pos-vertical-center">
                     <div class="row">
@@ -37,7 +108,7 @@
                             </p>
                             <p class="lead">
                                 <strong>Adresse: </strong><br>24 avenue L.Mommaertslaan<br> 1140 Brussels<br><br>
-                                <strong>Adresse email:</strong><br> dynagraph@skynet.be 
+                                <strong>Adresse email:</strong><br> <a href="mailto:dynagraph@skynet.be ">dynagraph@skynet.be </a>
                             </p>
                         </div>
 
@@ -73,3 +144,16 @@
                 </div>
                 <!--end of container-->
                 </section>
+</div><%# fr4 %>
+  <script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr4").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en4").className = "hide";
+}
+});
+  </script>

@@ -140,9 +140,6 @@ section.homeview {
 [data-overlay="2"]:before {
     opacity: 0.5;
 }
-span.feature img:first-child:not(:last-child) {
-    min-height: 191px!important;
-}
 @media screen and (max-width: 940px) {
   a.feature img:first-child:not(:last-child) {
     min-height: 51px!important;
@@ -189,8 +186,202 @@ opacity: 1; object-fit: cover;
     width:30em;
 }
 </style>
+<div id="en5">
+    <section class="text-center home">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-10">
+                        <% @projets1.each do |projet| %>
+                        <div class="image grand">
+                        <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                        </div>
+                            <h3 class="h3"><%= projet.titleen %></h3>
+                            <p class="lead body">
+                                <div class="test"><%= sanitize projet.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%></div>
+                            </p>
+                        <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
 
-<section class="text-center home">
+<section class="homeview">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-6">
+                        <% @solutions1.each do |solution| %>
+                            <a href="/solutions#1" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+
+                                    <h4 class="pos-vertical-center">
+                                    <%= solution.titleen %>
+                                    </h4>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                        <div class="col-md-5 col-6">
+                        <% @solutions2.each do |solution| %>
+                            <a href="/solutions#2" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                                    <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                        <div class="col-md-5 col-6">
+                        <% @solutions3.each do |solution| %>
+                            <a href="/solutions#3" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                                    <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                        <div class="col-md-7 col-6">
+                        <% @solutions4.each do |solution| %>
+                            <a href="/solutions#4" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                                    <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                        <div class="col-md-12 col-12">
+                        <% @solutions5.each do |solution| %>
+                            <a href="/solutions#5" class="block">
+                                <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
+<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                                    <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+<% @projets2.each do |projet| %>
+<center>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2><%= projet.titleen %></h2> 
+                            <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+</center>
+
+                <div class="container">
+                  <div class="row">
+                        <div class="col-md-12">
+                          <section class="customer-logos slider">
+                                <% (0...projet.images.count).each do |image| %>
+                                <%= image_tag(projet.thumbnail(image))%>
+                                <% end %>
+                          </section>
+                        </div>
+                   </div>
+                </div>
+                <!--end of container-->
+<% end %>
+<section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Examples of achievements</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="/projets">Read more</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets5.each do |projet| %>
+                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <h5 class="mb--0"><%= projet.titleen %></h5>
+                                <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
+                              <% end %>
+                            </span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets6.each do |projet| %>
+                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <h5 class="mb--0"><%=projet.titleen %></h5>
+                                <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
+                                <%end%>
+                            </span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                              <% @projets7.each do |projet| %>
+                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <h5 class="mb--0"><%= projet.titleen %></h5>
+                                <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
+                                <% end %>
+                            </span >
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="feature">
+                               <% @projets8.each do |projet| %>
+                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <h5 class="mb--0"><%= projet.titleen %></h5>
+                                <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
+                                <% end %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+<section class="savoirfaire">
+                <div class="container">
+                    <div class="row justify-content-around">
+                     <% @projets3.each do |projet| %>
+                        <div class="col-md-6">
+                            <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                        </div>
+                        <div class="col-md-6 col-lg-5">
+                            <div class="switchable__text">
+                                <h2><%= projet.titleen %></h2>
+                                <p class="lead">
+                                    <%= sanitize projet.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
+                                    <br><a href="/abouts">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    <% end %>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            </div>
+            <%# en %>
+
+
+
+    <div id="fr5">
+    <section class="text-center home">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-10">
@@ -378,8 +569,8 @@ opacity: 1; object-fit: cover;
                 </div>
                 <!--end of container-->
             </section>
-
-
+    </div>
+<%# fr5 %>
 <script>
 
 
@@ -412,3 +603,16 @@ createSlick();
 //Now it will not throw error, even if called multiple times.
 $(window).on( 'resize', createSlick );
 </script>
+
+  <script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr5").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en5").className = "hide";
+}
+});
+  </script>

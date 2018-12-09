@@ -77,6 +77,6 @@ class ProjetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projet_params
-      params.fetch(:projet).permit(:title, :body,images: [])
+      params.fetch(:projet).permit(:title, :body,:bodyen, :titleen, images: [])
     end
 end

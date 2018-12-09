@@ -59,6 +59,12 @@
 }
 }
 
+@media screen and (max-width: 800px) {
+article.imagebg.border--round {
+    max-height:250px;
+}
+}
+
 </style>
 <style>
 .masonry__item:not(:empty) article {
@@ -99,6 +105,8 @@ article.imagebg.border--round {
   cursor: pointer;
 }
 </style>
+<div id="en2"></div>
+<div id="fr2">
 <div class="main-container">
 <section class="text-center height-40">
             <div class="container pos-vertical-center">
@@ -172,6 +180,7 @@ article.imagebg.border--round {
                 <!--end of container-->
             </section>
         </div>
+        </div><%#  fr2%>
 
 <div id="my-modal" class="modal">
     <div class="modal-content">
@@ -222,3 +231,15 @@ function outsideClick(e) {
   }
 }
 </script>
+  <script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr2").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en2").className = "hide";
+}
+});
+  </script>

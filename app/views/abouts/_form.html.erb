@@ -23,6 +23,17 @@
     <trix-editor input="Body" name="text" id="text"></trix-editor>
   </div><br>
 
+      <div class="field">
+    <label>Titre EN</label>
+    <%= form.text_field :titleen %>
+  </div>
+
+    <div class="field">
+    <label>Description EN</label>
+    <%= form.hidden_field :bodyen, id:"Bodyen" %>
+    <trix-editor input="Bodyen" name="text" id="text"></trix-editor>
+  </div><br>
+
 
   <%= form.file_field :images, multiple: true %>
 <br><br>

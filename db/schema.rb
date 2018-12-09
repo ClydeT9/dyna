@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_124133) do
+ActiveRecord::Schema.define(version: 2018_12_09_125354) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titleen"
+    t.text "bodyen"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -40,11 +42,19 @@ ActiveRecord::Schema.define(version: 2018_11_21_124133) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "homes", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titleen"
+    t.text "bodyen"
   end
 
   create_table "projets", force: :cascade do |t|
@@ -52,6 +62,8 @@ ActiveRecord::Schema.define(version: 2018_11_21_124133) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titleen"
+    t.text "bodyen"
   end
 
   create_table "solutions", force: :cascade do |t|
@@ -59,6 +71,8 @@ ActiveRecord::Schema.define(version: 2018_11_21_124133) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titleen"
+    t.text "bodyen"
   end
 
   create_table "users", force: :cascade do |t|

@@ -68,7 +68,12 @@ a.activemenu {
 .col-lg-6.text-right.text-left-xs.text-left-sm {
     padding-top: 4px;
 }
-
+.hide {
+    display:none!important;
+  }
+.show {
+    display:block;
+}
 </style>
 <section class="bar bar-3 bar--sm bg--secondary">
             <div class="container">
@@ -83,18 +88,51 @@ a.activemenu {
                         <div class="bar__module">
                             <ul class="menu-horizontal">
                                 <div class="topnav" id="myTopnav">
+                                <div id="en7">
                                 <a href="#" class="activemenu">Menu</a>
-                                        <a href="/abouts" class="modal-trigger" data-modal-index="0">Qui sommes nous ?</a>
-                                
-                                        <a href="/solutions" class="modal-trigger" data-modal-index="1">Nos solutions</a>
-                               
-                                        <a href="/projets" class="modal-trigger" data-modal-index="2">Références et réalisations</a>
-                               
-                                        <%= link_to 'Contact', new_contact_path,class:"modal-trigger" %>
+                                        <%= link_to 'About us', abouts_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Our solutions', solutions_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'References and achievements', projets_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Contact us', new_contact_path ,class:"modal-trigger"%>
+
+                                        <% if I18n.locale == :fr %>
+                                        <%= link_to url_for(locale: :en) do %>
+                                            <%= image_tag('united-kingdom.png',width:16, alt: 'English') %>
+                                        <% end %>
+                                        <% else %>
+                                        <%= link_to url_for(locale: :fr) do %>
+                                            <%= image_tag('france.png',width:16, alt: 'English') %>
+                                        <% end %>
+                                        <% end %>
+                                </div>
+                                <div id="fr7">
+                                <a href="#" class="activemenu">Menu</a>
+                                        <%= link_to 'Qui sommes nous ?', abouts_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Nos solutions', solutions_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Références et réalisations', projets_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Contact', new_contact_path ,class:"modal-trigger"%>
+
+                                        <% if I18n.locale == :fr %>
+                                        <%= link_to url_for(locale: :en) do %>
+                                            <%= image_tag('united-kingdom.png',width:16, alt: 'English') %>
+                                        <% end %>
+                                        <% else %>
+                                        <%= link_to url_for(locale: :fr) do %>
+                                            <%= image_tag('france.png',width:16, alt: 'English') %>
+                                        <% end %>
+                                        <% end %>
+                                </div>
                                         <% if (user_signed_in?) %> <%= link_to destroy_user_session_path, style:"color:black;", method: :delete do%>(Déconnexion)<%end%><%end%>
                                         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                                             <i class="fa fa-bars"></i>
                                         </a>
+
                                 </div>
                             </ul>
                         </div>
@@ -116,3 +154,15 @@ function myFunction() {
     }
 }
 </script>
+<script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr7").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en7").className = "hide";
+}
+});
+  </script>

@@ -526,6 +526,8 @@ span#b-5:focus ~ .slider .inset { margin-left:-400%; }
 
 }
 </style>
+<div id="fr">FR</div>
+<div id="en">EN</div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 
@@ -584,3 +586,16 @@ span#b-5:focus ~ .slider .inset { margin-left:-400%; }
 
   </div>		
 </div>
+
+<script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en").className = "hide";
+}
+});
+  </script>

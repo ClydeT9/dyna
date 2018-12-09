@@ -1,6 +1,6 @@
 class Projet < ActiveRecord::Base
     has_many_attached :images
-
+    
     def thumbnail input
         return self.images[input].variant(resize: '200x200>').processed
     end

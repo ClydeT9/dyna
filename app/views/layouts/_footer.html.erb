@@ -17,6 +17,9 @@ footer a.dynagraph.nav {
 .col-md-6.footer {
     font-family: "DINMedium";
 }
+.col-md-6.text-right.text-left-xs a {
+    color:white;
+}
 </style>
 
 <footer class="dark">
@@ -26,7 +29,7 @@ footer a.dynagraph.nav {
                            <%= link_to root_path do %><%= image_tag "DynagraphCarre.png", class:"logo-mini", height:25%><% end %> <%= link_to 'dynagraph', root_path,class:"dynagraph nav" %> | digital printing & lettering
                         </div>
                         <div class="col-md-6 text-right text-left-xs">
-                            <center><small>24 avenue L.Mommaertslaan 1140, Brussels <strong>|</strong> Tel: +32 (0)2 730 06 70</small></center>
+                            <center><small>24 avenue L.Mommaertslaan 1140, Brussels <strong>|</strong> Tel: +32 (0)2 730 06 70</small> | <small class="connexion"><%= link_to 'Connexion', new_user_session_path %></small></center> 
                         </div>
                     </div>
                     <!--end of row-->
