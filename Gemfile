@@ -15,6 +15,7 @@ gem 'trix'
 gem 'devise'
 gem 'google-cloud-storage'
 gem 'mini_magick'
+gem 'jquery-slick-rails'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
