@@ -98,6 +98,16 @@ article.imagebg.border--round {
     box-shadow: 0 2px 8px rgba(59,64,69,0.1);
     padding: 0px;
 }
+.categorie {
+    margin-bottom: 10px;
+}
+a {
+    color: #008ac9;
+}
+.categorie a {
+    font-size: 13px;
+    font-weight: 400;
+}
 </style>
 
 <div class="main-container">
@@ -117,6 +127,12 @@ article.imagebg.border--round {
 
             <section class="space--sm">
                 <div class="container">
+<div class="categorie"><strong>Catégories :</strong>
+<%= link_to 'Toutes les catégories', projets_path%> | 
+<% Category.all.each do |category| %>
+<%= link_to category.name, category_path(category) %> | 
+<% end %>
+</div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="masonry masonry-blog-magazine">
