@@ -1,0 +1,209 @@
+<style>
+  .nav {
+    display:inline;
+  }
+  body {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  }
+  h1 {
+        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #252525;
+    font-weight: 300;
+    font-variant-ligatures: common-ligatures;
+    margin-top: 0;
+    font-size: 3.14285714em;
+    line-height: 1.31818182em;
+  }
+  h2 {
+        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #252525;
+    font-weight: 300;
+    font-variant-ligatures: common-ligatures;
+    margin-top: 0;
+        font-size: 2.35714286em;
+    line-height: 1.36363636em;
+  }
+  h3 {
+        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #252525;
+    font-weight: 300;
+    font-variant-ligatures: common-ligatures;
+    margin-top: 0;
+        font-size: 1.78571429em;
+    line-height: 1.5em;
+  }
+  h5 {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #252525;
+    font-variant-ligatures: common-ligatures;
+    font-size: 1em;
+    line-height: 1.85714286em;
+        font-weight: 600;
+  }
+  </style>
+  <style>
+@media screen and (max-width: 1100px) {
+.col-6 {
+    min-width:100%;
+}
+}
+
+@media screen and (max-width: 800px) {
+article.imagebg.border--round {
+    max-height:250px;
+}
+}
+.masonry__item:not(:empty) article {
+    cursor: default;
+}
+article.imagebg .article__title span {
+    font-size: 18px;
+}
+.imagebg:not(.image--light) h4 {
+    font-size:14px;
+}
+.validate-required.validate-email {
+    margin-bottom:14px;
+}
+img.test {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+article.imagebg.border--round {
+    padding:0px;
+}
+
+.article__title {
+    padding-left: 30px;
+}
+.color {
+    background: #cbd301;
+    padding: 1px;
+    text-align: center;
+    border-radius: 4px;
+    display:inline-block;
+    min-width:40%;
+    font-size:12px;
+    margin-right:10px;
+}
+.color:hover {
+  cursor: pointer;
+}
+article.imagebg.border--round {
+    padding: 0px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(59,64,69,0.1);
+    padding: 0px;
+}
+
+
+
+.dropbtn {
+  padding: 5px;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 16px;
+  border-radius:4px;
+  border:1px solid #ebebeb;
+  cursor: pointer;
+      min-width: 300px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+      background: #fafafa;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #f5f7fb;
+}
+.col-md-12 {
+    z-index: -1;
+}
+</style>
+
+<div class="main-container">
+<section class="text-center height-40">
+            <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2><%= @category.name %></h2>
+                            <p class="lead">
+                            </p>
+                        </div>
+                    </div>
+<div class="dropdown">
+  <button class="dropbtn">Catégories</button>
+  <div class="dropdown-content">
+  <%= link_to 'Toutes les catégories', projets_path %>
+<% Category.all.each do |category| %>
+<%= link_to category.name, category_path(category) %>
+<% end %>
+  </div>
+</div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+            <section class="space--sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="masonry masonry-blog-magazine">
+                                <% @category.projets.each do |projet| %>
+                                                                            <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                                                             <article class="imagebg border--round">
+                                                                             <%= link_to projet_path(projet) do %>
+                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                            <% end %>
+                                                                                <div class="article__title">
+                                                                                    <span><%= projet.title %></span>
+                                                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
+                                                                                 </div>
+                                                                           
+                                                                          
+                                                                            </article>
+                                                                    </div>
+                                                          
+                                    <!--end item-->
+                                   <% end %>
+                                </div>
+                                <!--end masonry container-->
+                                
+                            </div>
+                            <!--end masonry-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>
+
+        

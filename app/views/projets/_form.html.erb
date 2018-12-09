@@ -35,6 +35,12 @@
     <%= f.text_area :bodyen %>
   </div><br>
 
+<div class="field">
+  <label>Catégorie</label>
+  <%= f.select :category_id, Category.all.pluck(:name, :id), {prompt: "Catégorie"}%>                          
+</div>
+<br>
+
 <%= f.file_field :images, multiple: true %>
 <br><br>
 <div class="row">

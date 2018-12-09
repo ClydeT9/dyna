@@ -94,8 +94,149 @@ article.imagebg.border--round {
 .color:hover {
   cursor: pointer;
 }
+article.imagebg.border--round {
+    padding: 0px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(59,64,69,0.1);
+    padding: 0px;
+}
+
+
+
+.dropbtn {
+  padding: 5px;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 16px;
+  border-radius:4px;
+  border:1px solid #ebebeb;
+  cursor: pointer;
+      min-width: 300px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+background: #fafafa;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #f5f7fb;
+}
+.col-md-12 {
+    z-index: -1;
+}
 </style>
-<div id="en2"></div>
+<div id="en2">
+<div class="main-container">
+<section class="text-center height-40">
+            <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                           <% @projets4.each do |projet| %>
+                            <h2><%= projet.titleen %></h2>
+                            <p class="lead">
+                               <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
+                               <% if (user_signed_in?) %><a href="/projets/new">Nouveau projet</a><%end%>
+                            </p>
+                            <% end %>
+                        </div>
+                    </div>
+<div class="dropdown">
+  <button class="dropbtn">Catégories</button>
+  <div class="dropdown-content">
+<% Category.all.each do |category| %>
+<%= link_to category.name, category_path(category) %>
+<% end %>
+  </div>
+</div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section class="space--sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="masonry masonry-blog-magazine">
+                                
+                                <% @projets_home.each do |projet| %>
+                                                                            <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                                                             <article class="imagebg border--round">
+                                                                             <%= link_to projet_path(projet) do %>
+                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                            <% end %>
+                                                                                <div class="article__title">
+                                                                                    <span><%= projet.titleen %></span>
+                                                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
+                                                                                 </div>
+                                                                           
+                                                                          
+                                                                            </article>
+                                                                    </div>
+                                   
+                                <% end %>
+                           
+
+                             <% @projets_all.each do |projet| %>
+                                    <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                            <article class="imagebg border--round" data-scrim-bottom="8">
+                                                
+                                                   
+                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+
+
+                                                <div class="article__title">
+                                                    <span><%= projet.titleen %></span>
+                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
+                                                </div>
+                                            </article>
+                                        </a> 
+                                    </div>
+                            <% end %>                                 
+                                    <!--end item-->
+                                   
+                                </div>
+                                <!--end masonry container-->
+                                
+                            </div>
+                            <!--end masonry-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>
+</div>
+<%# en %>
+
+
 <div id="fr2">
 <div class="main-container">
 <section class="text-center height-40">
@@ -106,7 +247,8 @@ article.imagebg.border--round {
                             <h2><%= projet.title %></h2>
                             <p class="lead">
                                <% if (user_signed_in?) %><%= link_to 'Modification', edit_projet_path(projet) %><%end%>
-                               <% if (user_signed_in?) %><%= link_to 'Nouveau projet', new_projet_path(projet) %><%end%>
+                               <% if (user_signed_in?) %><a href="/projets/new">Nouveau projet</a><%end%>
+
                             </p>
                             <% end %>
                         </div>
@@ -121,19 +263,19 @@ article.imagebg.border--round {
                     <div class="row">
                         <div class="col-md-12">
                             <div class="masonry masonry-blog-magazine">
-                            
+                                
                                 <% @projets_home.each do |projet| %>
-                                   
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
-                                                                            <article class="imagebg border--round" data-scrim-bottom="8">
-                                                                                
-                                                                                
+                                                                             <article class="imagebg border--round">
+                                                                             <%= link_to projet_path(projet) do %>
                                                                                 <%= image_tag projet.images[0] if projet.images.length > 0 %>
-
+                                                                            <% end %>
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.title %></span>
-                                                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
-                                                                                </div>
+                                                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
+                                                                                 </div>
+                                                                           
+                                                                          
                                                                             </article>
                                                                     </div>
                                    
@@ -150,7 +292,7 @@ article.imagebg.border--round {
 
                                                 <div class="article__title">
                                                     <span><%= projet.title %></span>
-                                                    <h4><%= projet.body %> <% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
+                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><div class="color"><%= link_to 'Supprimer',  projet,  method: :delete, data: { confirm: 'Suppression du projet ?' } %></div><%end%></h4>
                                                 </div>
                                             </article>
                                         </a> 
@@ -172,55 +314,6 @@ article.imagebg.border--round {
         </div>
         </div><%#  fr2%>
 
-<div id="my-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-body">
-      <span class="close">&times;</span>
-            <div id='contentest'></div>
-      </div>
-    </div>
-</div>
-
-
-
-<script>
-    $(".projets[data-id]").click(function(e) {
-    if (!$(e.target).hasClass('no-click')) {
-      $.get('/projets/' + $(this).attr('data-id'), function(data) {
-        $('#contentest').html(data);
-      }); 
-    }
-});
-</script>
-
-  <script>
-  // Get DOM Elements
-const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('#modal-btn');
-const closeBtn = document.querySelector('.close');
-
-// Events
-modalBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-
-// Open
-function openModal() {
-  modal.style.display = 'block';
-}
-
-// Close
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-// Close If Outside Click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
-}
-</script>
   <script>
 $(document).ready(function () {
 if (window.location.href.indexOf("/en") > -1) {

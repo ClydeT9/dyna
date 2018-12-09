@@ -44,35 +44,82 @@
     line-height: 1.85714286em;
         font-weight: 600;
   }
+  .prev, .next{
+    display: inline;
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid #ececec;
+    color: #666666;
+    border-radius: 4px;
+    z-index:1;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #ececec;
+    }
+      .prev:hover, .next:hover{
+cursor:pointer;
+    }
+
+.col-md-8 {
+    max-height: 600px;
+    margin-bottom: 6em;
+    padding: 0px;
+}
+.col-md-4 {
+  padding: 30px;
+    padding-top: 20px;
+}
+.container.show {
+      border: 1px solid #ebebeb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(59,64,69,0.1);
+    padding: 0px;
+}
+.slick-list.draggable {
+    border-radius: 4px 0px 0px 0px;
+}
+
+@media screen and (max-width: 640px) {
+.slick-initialized .slick-slide {
+    display: block;
+    max-height: 400px;
+}
+}
   </style>
-<%= @projet.title %>
+<br>
+                  <div class="container show">
+                        <div class="col-md-8">
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+                          <div class="slider-box _clearfix">
+                          <div class="slick-slider">
+                                <% (0...@projet.images.count).each do |image| %>
+                                <%= image_tag(@projet.large(image))%>
+                                <% end %>
+                          </div>
+                         <div class="paginator-center text-color text-center">
+                          <ul>
+                              <li class="prev"><i class="fas fa-arrow-circle-left"></i></li>
+                              <li class="next"><i class="fas fa-arrow-circle-right"></i></li>
+                          </ul>
+                        </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+                        </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div id="en12">
+                        <h1><%= @projet.titleen %></h1>
+                        <p><%= @projet.bodyen %></p>
+                        </div>
+                        <div id="fr12">
+                        <h1><%= @projet.title %></h1>
+                        <p><%= @projet.body %></p>
+                        <p><strong>Catégorie :</strong> <%= @projet.category.name %></p>
+                        </div>
+                        </div>
+                   </div>
 </div>
-
+<%# fr %>
 <script>
 $(document).ready(function () {
 if (window.location.href.indexOf("/en") > -1) {
@@ -82,6 +129,37 @@ if (window.location.href.indexOf("/en") > -1) {
 {
     // alert("found it");
     document.getElementById("en").className = "hide";
+}
+});
+  </script>
+
+  <%# fr5 %>
+<script>
+function createSlick(){  
+
+	$(".slick-slider").not('.slick-initialized').slick({
+      centerPadding: '60px',
+      prevArrow: $('.prev'),
+      nextArrow: $('.next'),
+      responsive: true
+});	
+
+}
+
+createSlick();
+
+//Now it will not throw error, even if called multiple times.
+$(window).on( 'resize', createSlick );
+</script>
+  <script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr12").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en12").className = "hide";
 }
 });
   </script>

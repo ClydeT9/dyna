@@ -4,6 +4,7 @@ class ProjetsController < ApplicationController
   # GET /projets
   # GET /projets.json
   def index
+    @projets = Projet.all.where.not(id: [1,2,3,4])
     @projets_all = Projet.all.where.not(id: [1,2,3,4,5,6,7,8])
     @projets_home = Projet.all.where(id: [5,6,7,8])
     @projets4 = Projet.where(id:4)
@@ -77,6 +78,6 @@ class ProjetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projet_params
-      params.fetch(:projet).permit(:title, :body,:bodyen, :titleen, images: [])
+      params.fetch(:projet).permit(:title, :body,:bodyen, :category_id, :titleen, images: [])
     end
 end
