@@ -102,52 +102,11 @@ article.imagebg.border--round {
     box-shadow: 0 2px 8px rgba(59,64,69,0.1);
     padding: 0px;
 }
-
-
-
-.dropbtn {
-  padding: 5px;
-  padding-left:20px;
-  padding-right:20px;
-  font-size: 16px;
-  border-radius:4px;
-  border:1px solid #ebebeb;
-  cursor: pointer;
-      min-width: 300px;
+.categorie {
+    margin-bottom: 10px;
 }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 300px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-background: #fafafa;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #f5f7fb;
-}
-.col-md-12 {
-    z-index: -1;
+a {
+    color: #008ac9;
 }
 </style>
 <div id="en2">
@@ -165,14 +124,6 @@ background: #fafafa;
                             <% end %>
                         </div>
                     </div>
-<div class="dropdown">
-  <button class="dropbtn">Catégories</button>
-  <div class="dropdown-content">
-<% Category.all.each do |category| %>
-<%= link_to category.name, category_path(category) %>
-<% end %>
-  </div>
-</div>
                     <!--end of row-->
                 </div>
                 <!--end of container-->
@@ -181,10 +132,16 @@ background: #fafafa;
 
             <section class="space--sm">
                 <div class="container">
+<div class="categorie"><strong>Categories :</strong>
+<% Category.all.each do |category| %>
+<%= link_to category.name, category_path(category) %>
+<% end %>
+</div>
                     <div class="row">
                         <div class="col-md-12">
+
                             <div class="masonry masonry-blog-magazine">
-                                
+                            
                                 <% @projets_home.each do |projet| %>
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">

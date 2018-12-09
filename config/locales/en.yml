@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+en:
+  activerecord:
+    models:
+      category:
+        one: Dude
+        other: Dudes

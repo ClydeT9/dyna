@@ -86,8 +86,23 @@ cursor:pointer;
     max-height: 400px;
 }
 }
+
+.container.retour {
+    padding-left: 0px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.retour, .retour:hover {
+    color: #8e8e8e;
+    text-decoration:none;
+}
   </style>
 <br>
+<div class="container retour">
+                        <%= link_to projets_path, class:"retour" do %>
+                            <i class="fas fa-arrow-circle-left"></i> Retour
+                        <% end %>
+</div>
                   <div class="container show">
                         <div class="col-md-8">
 
@@ -110,6 +125,7 @@ cursor:pointer;
                         <div id="en12">
                         <h1><%= @projet.titleen %></h1>
                         <p><%= @projet.bodyen %></p>
+                        <p><strong>Categorie :</strong> <%= @projet.category.name %></p>
                         </div>
                         <div id="fr12">
                         <h1><%= @projet.title %></h1>

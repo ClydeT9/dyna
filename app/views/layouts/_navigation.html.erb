@@ -74,6 +74,9 @@ a.activemenu {
 .show {
     display:block;
 }
+.drapeau img, .drapea-2 img {
+        padding-top: 3px!important;
+}
 </style>
 <section class="bar bar-3 bar--sm bg--secondary">
             <div class="container">
@@ -100,11 +103,11 @@ a.activemenu {
 
                                         <% if I18n.locale == :fr %>
                                         <%= link_to url_for(locale: :en) do %>
-                                            <%= image_tag('united-kingdom.png',width:16, alt: 'English') %>
+                                            <%= image_tag('united-kingdom.png',width:16,class:"drapeau", alt: 'English') %>
                                         <% end %>
                                         <% else %>
                                         <%= link_to url_for(locale: :fr) do %>
-                                            <%= image_tag('france.png',width:16, alt: 'English') %>
+                                            <%= image_tag('france.png',width:16,class:"drapeauu", alt: 'English') %>
                                         <% end %>
                                         <% end %>
                                 </div>
@@ -117,15 +120,19 @@ a.activemenu {
                                         <%= link_to 'Références et réalisations', projets_path ,class:"modal-trigger"%>
 
                                         <%= link_to 'Contact', new_contact_path ,class:"modal-trigger"%>
-
+                                        
                                         <% if I18n.locale == :fr %>
+                                        <span class="drapeau">
                                         <%= link_to url_for(locale: :en) do %>
                                             <%= image_tag('united-kingdom.png',width:16, alt: 'English') %>
                                         <% end %>
+                                        </span>
                                         <% else %>
+                                        <span class="drapeau-2">
                                         <%= link_to url_for(locale: :fr) do %>
                                             <%= image_tag('france.png',width:16, alt: 'English') %>
                                         <% end %>
+                                        </span>
                                         <% end %>
                                 </div>
                                         <% if (user_signed_in?) %> <%= link_to destroy_user_session_path, style:"color:black;", method: :delete do%>(Déconnexion)<%end%><%end%>
