@@ -109,13 +109,77 @@ a {
     font-weight: 400;
 }
 </style>
-
+<div id="en13">
 <div class="main-container">
 <section class="text-center height-40">
             <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-md-8">
-                            <h2><%= @category.name %></h2>
+                            <h2>Projects
+                            </h2>
+                            <p class="lead">
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+            <section class="space--sm">
+                <div class="container">
+<div class="categorie"><strong>Categories :</strong>
+<%= link_to 'All categories', projets_path %> | 
+<a href="/en/categories/1">Vehicle lettering</a> | 
+<a href="/en/categories/2">Events</a> | 
+<a href="/en/categories/3">Signs and signage</a> | 
+<a href="/en/categories/4">Tarpaulins and special films</a> | 
+<a href="/en/categories/5">Stickering and advertising campaigns</a> 
+</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="masonry masonry-blog-magazine">
+                                <% @category.projets.each do |projet| %>
+                                                                            <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
+                                                                             <article class="imagebg border--round">
+                                                                             <%= link_to projet_path(projet) do %>
+                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                            <% end %>
+                                                                                <div class="article__title">
+                                                                                    <span><%= projet.titleen %></span>
+                                                                                    <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
+                                                                                 </div>
+                                                                           
+                                                                          
+                                                                            </article>
+                                                                    </div>
+                                                          
+                                    <!--end item-->
+                                   <% end %>
+                                </div>
+                                <!--end masonry container-->
+                                
+                            </div>
+                            <!--end masonry-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>
+        </div>
+<%# en %>
+
+
+<div id="fr13">
+<div class="main-container">
+<section class="text-center height-40">
+            <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2><%= @category.name %>
+                            </h2>
                             <p class="lead">
                             </p>
                         </div>
@@ -128,10 +192,12 @@ a {
             <section class="space--sm">
                 <div class="container">
 <div class="categorie"><strong>Catégories :</strong>
-<%= link_to 'Toutes les catégories', projets_path%> | 
-<% Category.all.each do |category| %>
-<%= link_to category.name, category_path(category) %> | 
-<% end %>
+<%= link_to 'Toutes les catégories', projets_path %> | 
+<a href="/fr/categories/1">Lettrages véhicules</a> | 
+<a href="/fr/categories/2">Evénements</a> | 
+<a href="/fr/categories/3">Panneaux et signalisation</a> | 
+<a href="/fr/categories/4">Bâches et films spéciaux</a> | 
+<a href="/fr/categories/5">Stickering et campagnes publicitaires</a> 
 </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -165,5 +231,19 @@ a {
                 <!--end of container-->
             </section>
         </div>
+</div><%# fr %>
 
+
+  <script>
+$(document).ready(function () {
+if (window.location.href.indexOf("/en") > -1) {
+    // alert("found it");
+      document.getElementById("fr13").className = "hide";
+} else 
+{
+    // alert("found it");
+    document.getElementById("en13").className = "hide";
+}
+});
+  </script>
         

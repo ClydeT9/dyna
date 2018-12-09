@@ -6,7 +6,6 @@ class CategoriesController < ApplicationController
       @projets = Projet.all.where.not(id: [1,2,3,4])
       @projets_all = Projet.all.where.not(id: [1,2,3,4,5,6,7,8])
       @projets_home = Projet.all.where(id: [5,6,7,8])
-      @projets4 = Projet.where(id:4)
       #@test3 = Category.includes(:softwares).where(ancestry: 1)
     end
   
