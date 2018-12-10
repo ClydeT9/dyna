@@ -58,6 +58,8 @@ article.imagebg.border--round {
 }
 article.imagebg .article__title span {
     font-size: 18px;
+            background: #6666665e;
+        padding:4px;
 }
 .imagebg:not(.image--light) h4 {
     font-size:14px;
@@ -152,13 +154,14 @@ body {                /* body - or any parent wrapper */
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
                                                                                 <%= image_tag projet.images[0] if projet.images.length > 0 %>
-                                                                            <% end %>
+                                                                           
                                                                                 <div class="article__title">
+                                                                        
                                                                                     <span><%= projet.titleen %></span>
                                                                                     <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
-                                                                                 </div>
+                                                                                </div>
                                                                            
-                                                                          
+                                                                          <% end %>
                                                                             </article>
                                                                     </div>
                                                           
@@ -215,13 +218,13 @@ body {                /* body - or any parent wrapper */
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
                                                                                 <%= image_tag projet.images[0] if projet.images.length > 0 %>
-                                                                            <% end %>
+                                                                           
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.title %></span>
                                                                                     <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
                                                                                  </div>
                                                                            
-                                                                          
+                                                                           <% end %>
                                                                             </article>
                                                                     </div>
                                                           
