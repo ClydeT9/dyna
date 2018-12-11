@@ -58,7 +58,7 @@ object-fit: cover;
             <% @abouts1.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                        <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                        <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">
@@ -79,7 +79,7 @@ object-fit: cover;
              <% @abouts2.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                       <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">
@@ -100,7 +100,7 @@ object-fit: cover;
              <% @abouts3.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                       <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">
@@ -140,7 +140,7 @@ object-fit: cover;
             <% @abouts1.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                        <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                        <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">
@@ -161,7 +161,7 @@ object-fit: cover;
              <% @abouts2.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                      <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">
@@ -182,7 +182,7 @@ object-fit: cover;
              <% @abouts3.each do |about| %>
                 <div class="imageblock__content col-lg-6 col-md-4 pos-right">
                  <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                       <%= image_tag url_for(about.images[0].variant(resize: "800x800"), class:"background-image-holder test") if about.images.length > 0 %>
                  </div>
                 </div>
                 <div class="container">

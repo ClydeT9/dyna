@@ -58,7 +58,6 @@ article.imagebg.border--round {
 }
 article.imagebg .article__title span {
     font-size: 18px;
-            background: #6666665e;
         padding:4px;
 }
 .imagebg:not(.image--light) h4 {
@@ -115,8 +114,12 @@ body {                /* body - or any parent wrapper */
   flex-direction: column;
   min-height: 100vh;
 }
-#fr13, #en13 {
-  flex: 1;
+article.imagebg .article__title {
+    width: 100%;
+    max-width: 100%;
+    background: #292626d6;
+    padding-top: 10px;
+    padding-bottom: 3px;
 }
 </style>
 <% if I18n.locale == :fr %>
@@ -153,7 +156,7 @@ body {                /* body - or any parent wrapper */
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                             <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                            
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.title %></span>
@@ -212,7 +215,7 @@ body {                /* body - or any parent wrapper */
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                           <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                            
                                                                                 <div class="article__title">
                                                                         

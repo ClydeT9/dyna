@@ -157,8 +157,7 @@ article.imagebg .article__title {
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
-                                                                           
+                                                         <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.title %></span>
                                                                                     <h4><% if (user_signed_in?) %> <div class="color"><%= link_to 'Modification', edit_projet_path(projet) %></div><%end%></h4>
@@ -175,7 +174,7 @@ article.imagebg .article__title {
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                            
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.title %></span>
@@ -240,7 +239,7 @@ article.imagebg .article__title {
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                       <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                            
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.titleen %></span>
@@ -257,7 +256,7 @@ article.imagebg .article__title {
                                                                             <div class="masonry__item col-md-6 col-6 h filter-marketing" data-masonry-filter="Marketing" style="">
                                                                              <article class="imagebg border--round">
                                                                              <%= link_to projet_path(projet) do %>
-                                                                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                                                    <%= image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                                                                            
                                                                                 <div class="article__title">
                                                                                     <span><%= projet.titleen %></span>

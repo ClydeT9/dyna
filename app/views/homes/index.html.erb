@@ -233,8 +233,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <%= link_to solutions_path(anchor: 'a'),class:"block" do %>
                          
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
 <%# <%= image_tag url_for(solution.images[0].variant(resize: "600x600"), class:"background-image-holder") if solution.images.length > 0 %>
 
                                     <h4 class="pos-vertical-center">
@@ -249,7 +248,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions2.each do |solution| %>
                           <%= link_to solutions_path(anchor: 'b'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                           <% end %>
@@ -259,7 +258,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions3.each do |solution| %>
                            <%= link_to solutions_path(anchor: 'c'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                            <% end %>
@@ -269,7 +268,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions4.each do |solution| %>
                           <%= link_to solutions_path(anchor: 'd'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             <% end %>
@@ -279,7 +278,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions5.each do |solution| %>
                             <%= link_to solutions_path(anchor: 'e'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.title %></h4>
                                 </div>
                             <% end %>
@@ -427,7 +426,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                             <%= link_to solutions_path(anchor: 'aa'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
 
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
 
                                     <h4 class="pos-vertical-center">
                                     <%= solution.titleen %>
@@ -440,7 +439,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions2.each do |solution| %>
                            <%= link_to solutions_path(anchor: 'bb'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
                                 </div>
                          <% end %>
@@ -450,7 +449,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions3.each do |solution| %>
                            <%= link_to solutions_path(anchor: 'cc'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
                                 </div>
                             <% end %>
@@ -460,7 +459,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions4.each do |solution| %>
                             <%= link_to solutions_path(anchor: 'dd'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
                                 </div>
                            <% end %>
@@ -470,7 +469,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <% @solutions5.each do |solution| %>
                            <%= link_to solutions_path(anchor: 'ee'),class:"block" do %>
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-<%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%= image_tag url_for(solution.images[0].variant(resize: "1200x1200"), class:"background-image-holder") if solution.images.length > 0 %>
                                     <h4 class="pos-vertical-center"><%= solution.titleen %></h4>
                                 </div>
                             <% end %>
