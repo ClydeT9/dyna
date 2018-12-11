@@ -211,8 +211,8 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-10 col-lg-10">
                         <% @projets1.each do |projet| %>
                         <div class="image grand">
-
-                        <%= image_tag projet.images.last.variant(resize_to_fit: [400, 400]) %>
+                  
+                        <%= image_tag(projet.images[0].variant(resize_to_fit: [400, 400])) if projet.images.length > 0 %>
 
 
                         </div>
