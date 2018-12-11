@@ -204,7 +204,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
 }
 }
 </style>
-<div id="en5">
+<% if I18n.locale == :fr %>
     <section class="text-center home">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -394,12 +394,9 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                 </div>
                 <!--end of container-->
             </section>
-            </div>
-            <%# en %>
+<% else %>
 
 
-
-    <div id="fr5">
     <section class="text-center home">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -590,8 +587,8 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                 </div>
                 <!--end of container-->
             </section>
-    </div>
-<%# fr5 %>
+
+<% end %>
 <script>
 function createSlick(){  
 
@@ -622,16 +619,3 @@ createSlick();
 //Now it will not throw error, even if called multiple times.
 $(window).on( 'resize', createSlick );
 </script>
-
-  <script>
-$(document).ready(function () {
-if (window.location.href.indexOf("/en") > -1) {
-    // alert("found it");
-      document.getElementById("fr5").className = "hide";
-} else 
-{
-    // alert("found it");
-    document.getElementById("en5").className = "hide";
-}
-});
-  </script>

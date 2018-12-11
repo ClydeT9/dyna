@@ -91,30 +91,36 @@ a.activemenu {
                         <div class="bar__module">
                             <ul class="menu-horizontal">
                                 <div class="topnav" id="myTopnav">
-                                <div id="fr7">
+                               
                                 <a href="#" class="activemenu">Menu</a>
-                                        <%= link_to 'Qui sommes nous ?', abouts_path ,class:"modal-trigger"%>
+                                        <% if I18n.locale == :fr %>
+                                         <%= link_to 'Qui sommes nous ?', abouts_path ,class:"modal-trigger"%>
 
                                         <%= link_to 'Nos solutions', solutions_path ,class:"modal-trigger"%>
 
                                         <%= link_to 'Références et réalisations', projets_path ,class:"modal-trigger"%>
 
                                         <%= link_to 'Contact', new_contact_path ,class:"modal-trigger"%>
-                                        
-                                        <% if I18n.locale == :fr %>
                                         <span class="drapeau">
                                         <%= link_to url_for(locale: :en) do %>
                                             <%= image_tag('united-kingdom.png',width:16, alt: 'English') %>
                                         <% end %>
                                         </span>
                                         <% else %>
+                                         <%= link_to 'About us', abouts_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Our solutions', solutions_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'References and achievements', projets_path ,class:"modal-trigger"%>
+
+                                        <%= link_to 'Contact us', new_contact_path ,class:"modal-trigger"%>
                                         <span class="drapeau-2">
                                         <%= link_to url_for(locale: :fr) do %>
                                             <%= image_tag('france.png',width:16, alt: 'English') %>
                                         <% end %>
                                         </span>
                                         <% end %>
-                                </div>
+                        
                                         <% if (user_signed_in?) %> <%= link_to destroy_user_session_path, style:"color:black;", method: :delete do%>(Déconnexion)<%end%><%end%>
                                         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                                             <i class="fa fa-bars"></i>
