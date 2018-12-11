@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 #mail form
 gem 'mail_form'
 gem 'rails-i18n'
-gem 'rack-host-redirect'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
