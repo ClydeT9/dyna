@@ -17,137 +17,7 @@
 object-fit: cover; opacity: 1;
 }
 </style>
-<div id="en6">
-<div class="main-container">
-            <section class="text-center height-40">
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-md-8">
-                         <% @solutions.each do |solution| %>
-                            <h1><%= solution.titleen %></h1>
-                            <p class="lead">
-                                <div class="test"><%= sanitize solution.bodyen %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
-                            </p>
-                            <% end %>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            </section>
-            <section class="imageblock switchable feature-large bg--secondary space--sm">
-             <% @solutions1.each do |solution| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div>
-                  <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
-                    </div>
-                </div>
-                <div class="container" id="aa">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                        
-                            <h2><%= solution.titleen %></h2>
-                            <p class="lead">
-<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
-</p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-                                      <% end %>
-            </section>
-            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
-                                    <% @solutions2.each do |solution| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div>
-                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
-                    </div>
-                </div>
-                <div class="container" id="bb">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= solution.titleen %></h2>
-                            <p class="lead">
-<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
-</p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-                <% end %>
-            </section>
-            <section class="imageblock switchable feature-large bg--secondary space--sm">
-             <% @solutions3.each do |solution| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div>
-                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
-                    </div>
-                </div>
-                <div class="container" id="cc">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= solution.titleen %></h2>
-                            <p class="lead">
-<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
-</p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            <% end %>
-            </section>
-            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
-            <% @solutions4.each do |solution| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div>
-              <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
-                    </div>
-                </div>
-                <div class="container" id="dd">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= solution.titleen %></h2>
-                            <p class="lead">
- <%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
- </p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            <% end %>
-            </section>
-            <section class="imageblock switchable feature-large bg--secondary space--sm">
-            <% @solutions5.each do |solution| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div>
-                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
-                    </div>
-                </div>
-                <div class="container" id="ee">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= solution.titleen %></h2>
-                            <p class="lead">
-<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
-</p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-                <% end %>
-            </section>
-        </div>
-        </div>
-<%# en %>
-
-
-
-<div id="fr6">
+<% if I18n.locale == :fr %>
 <div class="main-container">
             <section class="text-center height-40">
                 <div class="container pos-vertical-center">
@@ -272,17 +142,130 @@ object-fit: cover; opacity: 1;
                 <% end %>
             </section>
         </div>
-<div>
-<%# fr6 %>
-          <script>
-$(document).ready(function () {
-if (window.location.href.indexOf("/en") > -1) {
-    // alert("found it");
-      document.getElementById("fr6").className = "hide";
-} else 
-{
-    // alert("found it");
-    document.getElementById("en6").className = "hide";
-}
-});
-  </script>
+
+        <% else %>
+<div class="main-container">
+            <section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                         <% @solutions.each do |solution| %>
+                            <h1><%= solution.titleen %></h1>
+                            <p class="lead">
+                                <div class="test"><%= sanitize solution.bodyen %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+                            </p>
+                            <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+             <% @solutions1.each do |solution| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div>
+                  <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                    </div>
+                </div>
+                <div class="container" id="aa">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                        
+                            <h2><%= solution.titleen %></h2>
+                            <p class="lead">
+<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+</p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                                      <% end %>
+            </section>
+            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
+                                    <% @solutions2.each do |solution| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                    </div>
+                </div>
+                <div class="container" id="bb">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= solution.titleen %></h2>
+                            <p class="lead">
+<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+</p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                <% end %>
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+             <% @solutions3.each do |solution| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                    </div>
+                </div>
+                <div class="container" id="cc">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= solution.titleen %></h2>
+                            <p class="lead">
+<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+</p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            <% end %>
+            </section>
+            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
+            <% @solutions4.each do |solution| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div>
+              <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                    </div>
+                </div>
+                <div class="container" id="dd">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= solution.titleen %></h2>
+                            <p class="lead">
+ <%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+ </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            <% end %>
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+            <% @solutions5.each do |solution| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div>
+                        <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+                    </div>
+                </div>
+                <div class="container" id="ee">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= solution.titleen %></h2>
+                            <p class="lead">
+<%= sanitize solution.bodyen %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_solution_path(solution) %><%end%>
+</p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                <% end %>
+            </section>
+        </div>
+<% end %>

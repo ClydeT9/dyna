@@ -36,8 +36,90 @@ object-fit: cover;
     color: grey!important;
 }
 </style>
-<div id="en3">
- <div class="main-container">
+<% if I18n.locale == :fr %>
+<div class="main-container">
+            <section class="text-center height-40">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                        <% @abouts.each do |about| %>
+                            <h1><%= about.title %></h1>
+                            <p class="lead">
+                                <div class="test"><%= sanitize about.body %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                            <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+            <% @abouts1.each do |about| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                 <div>
+                        <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                 </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+             <% end %>
+            </section>
+            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
+             <% @abouts2.each do |about| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                 <div>
+                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                 </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            <% end %>
+            </section>
+            <section class="imageblock switchable feature-large bg--secondary space--sm">
+             <% @abouts3.each do |about| %>
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                 <div>
+                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
+                 </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2><%= about.title %></h2>
+                            <p class="lead">
+                                <%= sanitize  about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+             <% end %>
+            </section>
+        </div>
+<% else %>
+<div class="main-container">
             <section class="text-center height-40">
                 <div class="container pos-vertical-center">
                     <div class="row">
@@ -119,101 +201,4 @@ object-fit: cover;
             </section>
         </div>
         </div>
-        <%# en %>
-
-
-<div id="fr3">
- <div class="main-container">
-            <section class="text-center height-40">
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-md-8">
-                        <% @abouts.each do |about| %>
-                            <h1><%= about.title %></h1>
-                            <p class="lead">
-                                <div class="test"><%= sanitize about.body %></div> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
-                            </p>
-                            <% end %>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            </section>
-            <section class="imageblock switchable feature-large bg--secondary space--sm">
-            <% @abouts1.each do |about| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                 <div>
-                        <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
-                 </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= about.title %></h2>
-                            <p class="lead">
-                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
-                            </p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-             <% end %>
-            </section>
-            <section class="imageblock switchable switchable--switch feature-large bg--secondary space--sm">
-             <% @abouts2.each do |about| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                 <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
-                 </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= about.title %></h2>
-                            <p class="lead">
-                                <%= sanitize about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
-                            </p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            <% end %>
-            </section>
-            <section class="imageblock switchable feature-large bg--secondary space--sm">
-             <% @abouts3.each do |about| %>
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                 <div>
-                       <%= image_tag(about.images[0],class:"background-image-holder test") if about.images.length > 0 %>
-                 </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2><%= about.title %></h2>
-                            <p class="lead">
-                                <%= sanitize  about.body %> <% if (user_signed_in?) %><%= link_to 'Modification', edit_about_path(about) %><%end%>
-                            </p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-             <% end %>
-            </section>
-        </div>
-</div><%# fr3 %>
-  <script>
-$(document).ready(function () {
-if (window.location.href.indexOf("/en") > -1) {
-    // alert("found it");
-      document.getElementById("fr3").className = "hide";
-} else 
-{
-    // alert("found it");
-    document.getElementById("en3").className = "hide";
-}
-});
-  </script>
+<% end %>

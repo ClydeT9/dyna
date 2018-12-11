@@ -121,32 +121,18 @@ img.slick-slide.slick-current.slick-active {
                         </div>
                         </div>
                         <div class="col-md-4">
-                        <div id="en12">
-                        <h2><%= @projet.titleen %></h2>
-                        <p><%= @projet.bodyen %></p>
-                        <p><strong>Categorie :</strong> <%= @projet.category.name %></p>
-                        </div>
-                        <div id="fr12">
+                        <% if I18n.locale == :fr %>
                         <h2><%= @projet.title %></h2>
                         <p><%= @projet.body %></p>
                         <p><strong>Catégorie :</strong> <%= @projet.category.name %></p>
-                        </div>
+                        <% else %>
+                        <h2><%= @projet.titleen %></h2>
+                        <p><%= @projet.bodyen %></p>
+                        <p><strong>Categorie :</strong> <%= @projet.category.name %></p>
+                        <% end %>
                         </div>
                    </div>
 </div>
-<%# fr %>
-<script>
-$(document).ready(function () {
-if (window.location.href.indexOf("/en") > -1) {
-    // alert("found it");
-      document.getElementById("fr").className = "hide";
-} else 
-{
-    // alert("found it");
-    document.getElementById("en").className = "hide";
-}
-});
-  </script>
 
   <%# fr5 %>
 <script>
@@ -166,15 +152,3 @@ createSlick();
 //Now it will not throw error, even if called multiple times.
 $(window).on( 'resize', createSlick );
 </script>
-  <script>
-$(document).ready(function () {
-if (window.location.href.indexOf("/en") > -1) {
-    // alert("found it");
-      document.getElementById("fr12").className = "hide";
-} else 
-{
-    // alert("found it");
-    document.getElementById("en12").className = "hide";
-}
-});
-  </script>
