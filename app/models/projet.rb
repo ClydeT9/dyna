@@ -1,6 +1,7 @@
 class Projet < ActiveRecord::Base
     has_many_attached :images
     belongs_to :category
+    process resize_to_limit: [800, 800]
     
     def thumbnail input
         return self.images[input].variant(resize: '200x200>').processed
