@@ -211,10 +211,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-10 col-lg-10">
                         <% @projets1.each do |projet| %>
                         <div class="image grand">
-                        <%= image_tag(projet.images[0]) if projet.images.length > 0 %>
-                        <%= image_tag(projet.images[0].variant(resize_to_fit: [400, 400])) if projet.images.length > 0 %>
-                        <%=image_tag url_for(projet.images[0].variant(resize: "128x128")) %>
-
+                        <%=image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                         </div>
                             <h3 class="h3"><%= projet.title %></h3>
                             <p class="lead body">
@@ -238,6 +235,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                                 <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
 
 <%= image_tag(solution.images[0],class:"background-image-holder") if solution.images.length > 0 %>
+<%# <%= image_tag url_for(solution.images[0].variant(resize: "600x600"), class:"background-image-holder") if solution.images.length > 0 %>
 
                                     <h4 class="pos-vertical-center">
                                     <%= solution.title %>
@@ -335,7 +333,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets5.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+<%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                               <% end %>
@@ -344,7 +342,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets6.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+ <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%=projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <%end%>
@@ -353,7 +351,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets7.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+ <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
@@ -362,7 +360,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                                <% @projets8.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+ <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.title %></h5>
                                 <div><%= projet.body %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
@@ -381,7 +379,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                     <div class="row justify-content-around">
                      <% @projets3.each do |projet| %>
                         <div class="col-md-6">
-                            <%= image_tag projet.images[0] if projet.images.length > 0 %>
+ <%=image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                         </div>
                         <div class="col-md-6 col-lg-5">
                             <div class="switchable__text">
@@ -407,7 +405,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-10 col-lg-10">
                         <% @projets1.each do |projet| %>
                         <div class="image grand">
-                        <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                        <%=image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                         </div>
                             <h3 class="h3"><%= projet.titleen %></h3>
                             <p class="lead body">
@@ -526,7 +524,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets5.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.titleen %></h5>
                                 <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
                               <% end %>
@@ -535,7 +533,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets6.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%=projet.titleen %></h5>
                                 <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
                                 <%end%>
@@ -544,7 +542,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                               <% @projets7.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                 <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.titleen %></h5>
                                 <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
@@ -553,7 +551,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                         <div class="col-md-3 col-6">
                             <span class="feature">
                                <% @projets8.each do |projet| %>
-                                <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                                <%=image_tag url_for(projet.images[0].variant(resize: "300x300")) if projet.images.length > 0 %>
                                 <h5 class="mb--0"><%= projet.titleen %></h5>
                                 <div><%= projet.bodyen %> <% if (user_signed_in?) %><%end%></div>
                                 <% end %>
@@ -572,7 +570,7 @@ section.customer-logos.slider.slick-initialized.slick-slider {
                     <div class="row justify-content-around">
                      <% @projets3.each do |projet| %>
                         <div class="col-md-6">
-                            <%= image_tag projet.images[0] if projet.images.length > 0 %>
+                             <%=image_tag url_for(projet.images[0].variant(resize: "600x600")) if projet.images.length > 0 %>
                         </div>
                         <div class="col-md-6 col-lg-5">
                             <div class="switchable__text">
