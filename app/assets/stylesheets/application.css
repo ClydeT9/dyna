@@ -59,6 +59,14 @@ section.bg--secondary {
     border-top: 1px solid #ececec;
 }
 
+.background-image-holder.test {
+    opacity: 1;
+}
+
+.background-image-holder.test2 {
+    opacity: 1;
+}
+
 .test {
     font-weight: 400 !important;
     color: #808080 !important;
