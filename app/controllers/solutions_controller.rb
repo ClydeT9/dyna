@@ -80,6 +80,6 @@ class SolutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solution_params
-      params.fetch(:solution).permit(:title, :body,images: [])
+      params.fetch(:solution).permit(:title, :body,:titleen, :bodyen,images: [])
     end
 end
